@@ -16,8 +16,10 @@ class TrailsController < ApplicationController
   
     def create
 
-     
-      @trail = Trail.new(trail_params)
+     @trail = Trail.new(trail_params)
+      @trail = current_user.trails.new(trail_params)
+      @park = Park.find(params[:id])
+      @trail.park_id = @park.id
       
       
       if @trail.save!
