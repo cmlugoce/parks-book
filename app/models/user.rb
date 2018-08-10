@@ -7,5 +7,7 @@ class User < ApplicationRecord
     validates :password, length: { in: 6..20 }
 
     has_many :parks
-    has_many :trails through: :parks
+    has_many :trails, through: :parks
+
+   
 end
