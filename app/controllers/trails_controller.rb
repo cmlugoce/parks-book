@@ -15,9 +15,13 @@ class TrailsController < ApplicationController
     end
   
     def create
+
+     
       @trail = Trail.new(trail_params)
+      
+      
       if @trail.save!
-        redirect_to trails_path(@trail)
+        redirect_to trail_path(@trail)
   
       else
         render :new
@@ -51,6 +55,6 @@ class TrailsController < ApplicationController
     end
   
     def trail_params
-      params.require(:trail).permit(:name, :image, :distance, :date, :description, :user_id, :park_id )
+      params.require(:trail).permit(:name, :image, :distance, :date, :description, :user_id)
     end
   end

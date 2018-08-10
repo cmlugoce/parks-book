@@ -1,0 +1,12 @@
+<h1><%= @trail.user.username %>'s Adventure</h1>
+<h2>Trail Name: <%= @trail.name %></h5><br>
+ <p class="item1">Distance:&nbsp;&nbsp;&nbsp;<%= @trail.distance %> miles</p><br>
+ <p class="item1">Date:&nbsp;&nbsp;&nbsp;<%= @trail.date %> </p><br>
+  <p id="trail-links"><% if current_user.trails.include?(@trail) %>
+      <%= link_to "Edit Trail", edit_trail_path(@trail), class: "edit-link" %>&nbsp;&nbsp;&nbsp;
+     <%= link_to "Delete Trail", trail_path(@trail), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
+
+    <% end %></p>
+
+    <%= link_to "Home", root_path %>
+    <%= link_to "Profile", user_path(@trail.user) %>
