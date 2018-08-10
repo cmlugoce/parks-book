@@ -2,6 +2,19 @@
 
 <h1> Welcome <%= @user.username %> </h1>
 
-<%= link_to "Home", root_path %> 
+<h2> You have logged <%= @user.parks.size %> Parks!!</h2>
 
-<%= link_to "Add a Park", new_user_park_path %>
+<% @user.parks.each do |park| %>
+    
+    <h2><%= park.name %></h2>
+    <p><%= park.user.username %></p>
+    <p><%= park.location %></p>
+<% end %>
+
+<%= link_to "Home", root_path %> |
+<% if current_user %>
+<%= link_to "Add a Park", new_user_park_path(@user) %> |
+<%= link_to "Logout", logout_path %> |
+
+<% end %>
+<%= link_to "Park Index", parks_path %>

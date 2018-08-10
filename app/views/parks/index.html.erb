@@ -1,3 +1,14 @@
-kkkk
+<h1>All Parks</h1>
 
-<%= link_to "Add a Park", new_user_park_path %>
+<% @parks.each do |park| %>
+
+<h2>Park Name: <%= link_to park.name, park_path(current_user, @park), class:'name' %></h2><br><br>
+<p>Posted by:<%= link_to park.user.username, user_path(current_user, @park) %></p>
+
+
+<% end %>
+
+
+
+
+<%= link_to "Logout", logout_path %>

@@ -13,9 +13,9 @@ class ParksController < ApplicationController
     end 
 
     def create 
-        @park = Park.new(park_params)
+        @park = current_user.parks.new(park_params)
         if @park.save!
-            redirect to user_park_path(@park)
+            redirect_to park_path(@park)
         else
             render :new 
         end
@@ -28,13 +28,13 @@ class ParksController < ApplicationController
     def update
         @park = Park.find(params[:id])
         if @park.update!(park_params)
-        redirect to user_park_path(@park)
+        redirect_to park_path(@park)
         end 
     end 
 
     private 
     def park_params
-        params.require(:park).permit(:name, :location)
+        params.require(:park).permit(:name, :location, :user_id)
       end
 
 

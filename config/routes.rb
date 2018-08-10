@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   
   root 'welcome#index'
   resources :users do 
-    resources :parks 
+    shallow do 
+    resources :parks do 
       resources :trails 
+    end
   end
+  end
+
+  resources :parks, only: [:index]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
