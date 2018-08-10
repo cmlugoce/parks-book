@@ -1,1 +1,14 @@
-jjjj
+<h1>Add a new park</h1>
+
+<%= form_for [current_user, @park] do |f| %>
+    <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  
+        <%= f.submit "Create Park", class:"submit" %>
+<% end %>
