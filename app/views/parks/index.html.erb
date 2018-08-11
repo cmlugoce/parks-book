@@ -2,7 +2,7 @@
 
 <% @parks.each do |park| %>
 
-<h2>Park Name: <%= link_to park.name, park_path(current_user, @park), class:'name' %></h2><br><br>
+<h2>Park Name: <%= link_to park.name, park_path(park), class:'name' %></h2><br><br>
 <p>Posted by:<%= link_to park.user.username, user_path(current_user, @park) %></p>
 
 
