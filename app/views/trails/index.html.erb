@@ -1,1 +1,11 @@
-hhh
+<h1>All Trails</h1>
+
+<% @trails.each do |trail| %>
+
+<h2>Trail Name: <%= link_to trail.name, trail_path(current_user, @trail), class:'name' %></h2><br><br>
+<p>Posted by:<%= trail.user.username %></p>
+
+
+<% end %>
+
+<%= link_to "Logout", logout_path %>

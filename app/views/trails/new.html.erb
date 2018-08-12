@@ -18,7 +18,8 @@
   <div class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
-    <%= f.hidden_field :user_id, :value => current_user.id%>
+    <%= f.hidden_field :user_id, :value => current_user.id%> 
+    <%= f.hidden_field :park_id, :value => params[:park_id]%>
 
         <%= f.submit "Create Trail", class:"submit" %>
 <% end %>
