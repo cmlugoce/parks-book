@@ -17,13 +17,11 @@ class TrailsController < ApplicationController
     def create
       
       @park = Park.find(params[:trail][:park_id])
-     #@trail = Trail.new(trail_params)
+     
       @trail = @park.trails.new(trail_params)
-      #@park = Park.find(params[:park_id])
-      #@trail.park_id = @park.id
-    
       
-      if @trail.save!
+      if @trail.save
+        flash[:msg] = "Trail created!"
         redirect_to trail_path(@trail)
   
       else
@@ -38,6 +36,7 @@ class TrailsController < ApplicationController
     def update
       @trail.update(trail_params)
       if @trail.save
+        flash[:msg] = "Trail updated!"
         redirect_to trails_path(@trail)
       else
         render :edit
@@ -47,6 +46,7 @@ class TrailsController < ApplicationController
   
     def destroy
       @trail.destroy
+      flash[:msg] = "Trail deleted!"
       redirect_to park_trails_path
   
     end

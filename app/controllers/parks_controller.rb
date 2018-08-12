@@ -15,7 +15,8 @@ class ParksController < ApplicationController
     def create 
         @user = User.find(params[:user_id])
         @park = @user.parks.build(park_params)
-        if @park.save!
+        if @park.save
+            flash[:msg] = "Park created!"
             redirect_to park_path(@park)
         else
             render :new 
@@ -29,6 +30,7 @@ class ParksController < ApplicationController
     def update
         @park = Park.find(params[:id])
         if @park.update!(park_params)
+        flash[:msg] = "Park updated."
         redirect_to park_path(@park)
         end 
     end 
@@ -36,6 +38,7 @@ class ParksController < ApplicationController
     def destroy
         @park = Park.find(params[:id])
         @park.destroy
+        flash[:msg] = "Park deleted!"
         redirect_to parks_path
     end 
 
