@@ -7,7 +7,8 @@ class ParksController < ApplicationController
     end 
 
     def show 
-        @park = Park.find(params[:id])
+        @park = Park.find(params[:id])      
+        
     end 
 
     def new

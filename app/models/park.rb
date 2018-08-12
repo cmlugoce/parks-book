@@ -1,6 +1,9 @@
 class Park < ApplicationRecord
   belongs_to :user
-  has_many :trails
-  has_many :comments, as: :commentable
+  has_many :trails, :dependent => :destroy
+ # has_many :comments
   validates :name, presence: true
+ 
+
+  
 end

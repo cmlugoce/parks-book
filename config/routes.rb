@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  
+ 
   root 'welcome#index'
   resources :users do 
     shallow do 
     resources :parks do 
-      resources :trails 
+      resources :trails do
+        resources :comments
+      end 
       
     end
   end
@@ -12,16 +14,11 @@ Rails.application.routes.draw do
 
   resources :parks, only: [:index]
 
-  resources :trails, only: [:show, :index, :create] 
+  #resources :trails, only: [:show, :index, :create] 
 
-  resources :parks do 
-    resources :comments, module: :parks
-  end 
+ # resources :comments, only: [:index, :new, :create]
 
-  resources :trails do
-    resources :comments, module: :trails
-  end 
-  
+ 
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -29,4 +26,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  
+
 end

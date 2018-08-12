@@ -11,6 +11,9 @@ class TrailsController < ApplicationController
     end
   
     def show
+      if current_user
+        @comment = current_user.comments.build(trail: @trail)
+      end
      
     end
   
