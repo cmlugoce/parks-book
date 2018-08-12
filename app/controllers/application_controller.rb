@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
     helper_method :current_user
     helper_method :logged_in?
+    helper_method :validate_user
     before_action :require_login, except: [:new, :create, :index]
 
     def current_user
@@ -16,4 +17,20 @@ class ApplicationController < ActionController::Base
     def require_login
         redirect_to root_path unless logged_in?
     end 
+
+    def user_exist
+        if params[:user_id] && !User.exists?(params[:user_id])
+          render ':welcome/index', message: "User not found"
+        end
+      end
+    
+      def match_user
+        if params[:user_id] != current_user.id.to_s
+          render ':welcome/index', message: "User ID authentication failure. You cannot edit other user's information."
+        end
+      end
+    
+      def validate_user
+        user_exist && match_user
+      end
 end
