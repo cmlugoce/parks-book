@@ -15,12 +15,13 @@ class TrailsController < ApplicationController
     end
   
     def create
-
-     @trail = Trail.new(trail_params)
-      @trail = current_user.trails.new(trail_params)
-      @park = Park.find(params[:id])
-      @trail.park_id = @park.id
       
+      @park = Park.find(params[:trail][:park_id])
+     #@trail = Trail.new(trail_params)
+      @trail = @park.trails.new(trail_params)
+      #@park = Park.find(params[:park_id])
+      #@trail.park_id = @park.id
+    
       
       if @trail.save!
         redirect_to trail_path(@trail)
@@ -28,7 +29,8 @@ class TrailsController < ApplicationController
       else
         render :new
       end
-    end
+   
+  end
   
     def edit
     end
