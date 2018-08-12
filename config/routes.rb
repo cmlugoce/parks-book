@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     shallow do 
     resources :parks do 
       resources :trails 
+      
     end
   end
   end
@@ -13,6 +14,13 @@ Rails.application.routes.draw do
 
   resources :trails, only: [:show, :index, :create] 
 
+  resources :parks do 
+    resources :comments, module: :parks
+  end 
+
+  resources :trails do
+    resources :comments, module: :trails
+  end 
   
 
   get '/login' => 'sessions#new'

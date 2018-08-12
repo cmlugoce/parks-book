@@ -1,4 +1,5 @@
 class ParksController < ApplicationController
+    
     before_action :logged_in?, only: [:index, :edit, :update, :destroy]
     before_action :validate_user
     def index 
