@@ -1,6 +1,9 @@
 <h1><%= @park.user.username %>'s Adventure</h1>
 <h2> Park Name: <%= @park.name %></h5><br>
  <p class="item1">Location:&nbsp;&nbsp;&nbsp;<%= @park.location %> miles</p><br>
+ <p> <%  @park.trails.each do |trail|%></p>
+    <%= link_to trail.name, trail_path(trail) %>
+    <% end %>
  
   <p id="park-links"><% if current_user.parks.include?(@park) %>
       <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %>&nbsp;&nbsp;&nbsp;
@@ -10,4 +13,4 @@
 
     <%= link_to "Home", root_path %> |
     <%= link_to "Profile", user_path(@park.user) %>
-    <%= link_to "Trails", new_park_trail_path(@park) %>
+    <%= link_to "Add new trails", new_park_trail_path(@park) %>
