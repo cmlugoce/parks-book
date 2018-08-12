@@ -8,8 +8,7 @@
      <%= link_to "Delete Trail", trail_path(@trail), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
 
     <% end %></p>
-    <%= @trail.park.name %>
-
-    <%= link_to "Home", root_path %>
-    <%= link_to "Profile", user_path(@trail.user) %>
+   
+    <%= link_to "Home", root_path %> |
+    <%= link_to "Profile", user_path(@trail.user) %> |
     <%= link_to "Trails Index", trails_path %>

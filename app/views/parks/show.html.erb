@@ -7,10 +7,11 @@
  
   <p id="park-links"><% if current_user.parks.include?(@park) %>
       <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %>&nbsp;&nbsp;&nbsp;
+      <%= link_to "Add new trails", new_park_trail_path(@park) %>
      <%= link_to "Delete Park", park_path(@park), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
 
     <% end %></p>
 
     <%= link_to "Home", root_path %> |
     <%= link_to "Profile", user_path(@park.user) %>
-    <%= link_to "Add new trails", new_park_trail_path(@park) %>
+   
