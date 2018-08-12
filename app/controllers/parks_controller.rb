@@ -1,5 +1,6 @@
 class ParksController < ApplicationController
     before_action :logged_in?, only: [:index, :edit, :update, :destroy]
+    before_action :validate_user
     def index 
         @parks = Park.all 
     end 
@@ -28,8 +29,9 @@ class ParksController < ApplicationController
     end 
 
     def update
-        @park = Park.find(params[:id])
-        if @park.update!(park_params)
+        
+        @park = current_user.parks.find(params[:id])
+        if @park.update(park_params)
         flash[:msg] = "Park updated."
         redirect_to park_path(@park)
         end 

@@ -1,0 +1,34 @@
+<%= form_for [@park, @trail] do |f| %>
+    <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :distance %><br>
+    <%= f.number_field :distance %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_field :date %>
+  </div>
+  </div>
+  
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :user_id, :value => current_user.id%> 
+    <%= f.hidden_field :park_id, :value => params[:park_id]%>
+
+        <%= f.submit "Create Trail", class:"submit" %>
+<% end %>
+
+<% if @trail.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <p> Error: </p>
+          <ul>
+            <% @trail.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+       <% end %>
