@@ -22,9 +22,9 @@
             <span class="icon-bar"></span>
           </button>
           <% if logged_in? %>
-            <a class="navbar-brand" href="/trails" style="color:white;">Adventure</a>
+            <a class="navbar-brand" href="/trails" style="color:white;">Parks-book</a>
           <% else %>
-            <a class="navbar-brand" href="/" style="color:white;">Adventure</a>
+            <a class="navbar-brand" href="/" style="color:white;">Parks-book</a>
           <% end %>
         </div>
 
@@ -33,17 +33,24 @@
           <ul class="nav navbar-nav navbar-right">
             <% if !logged_in? %>
 
-              <li><a href="/register" style="color: white;">Register</a></li>
+              <li><a href="/signup" style="color: white;">Signup</a></li>
               <li><a href="/login" style="color: white;">Log In</a></li>
             <% end %>
+            <% if current_user %>
+          <li><%= link_to "Welcome, #{current_user.username}!", user_path(current_user) %></li>
+        <% end %>
+          
 
             <% if logged_in? %>
 
-               <li><a href="/trails/new" class="glyphicon glyphicon-plus" style="color: white;"></a></li>
+              
+               <li><a href="/parks" style="color: white;">Parks</a></li>
               <li><a href="/trails" style="color: white;">Trails</a></li>
               <li><a href="/logout" style="color: white;">Log Out</a></li>
-
+              
             <% end %>
+            
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -59,6 +66,12 @@
               <% end %>
               <%= console %>
     <%= yield %>
+
+    <p class="search-p">Trails by distance</p>
+                <%= form_tag('/trails_by_distance', :method => "get", id: "search-form") do %>
+                    <%= number_field_tag :search, params[:search], placeholder: " whole miles", class: "search-input" %>
+                    <%= submit_tag "Search", class: "btn-sm", :name => nil %>
+                <% end %>
     <footer class="branding">
         <center><small>&copy; 2018 <strong>Parks-book </strong>All Rights Reserved.</small></center>
       </footer>
