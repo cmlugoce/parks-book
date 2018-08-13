@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
         @comment = @trail.comments.new(comment_params)
       
         if @comment.save!
-          flash[:success] = 'Your comment was successfully added!'
+          flash[:msg] = 'Your comment was successfully added!'
           redirect_to trail_path(@trail)
         else
           flash[:notice] = "Error creating comment: #{@comment.errors}"
