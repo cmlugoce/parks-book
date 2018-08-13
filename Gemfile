@@ -32,6 +32,7 @@ gem 'activerecord-reset-pk-sequence'
 
 # Use ActiveStorage variant
  gem 'mini_magick', '~> 4.8'
+ gem 'carrierwave', '~> 0.11.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
