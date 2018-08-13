@@ -1,0 +1,21 @@
+<h4>Trails by distance:</h4><br><br>
+
+<% @trails.order("created_at asc").each do |trail| %>
+  <div class='trail-card'>
+    <div class="row row-flex">
+      <div class="col-md-4 col-sm-6 col-xs-12-A">
+        <%= image_tag trail.image.url, class:'img-fluid' %><br><br>
+        <small class='user-link'>User: <%= link_to trail.user.username, user_path(trail.user) %></small>
+      </div>
+
+      <div class="box-div">
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12-B">
+        <h6><%= link_to trail.name, user_parks_path(current_user, trail), class:'name' %></h6><br><br>
+       
+        <p class="card-1">Distance:&nbsp;&nbsp;&nbsp;<%= trail.distance %> miles</p>
+      </div>
+    </div>
+  </div>
+<% end %>

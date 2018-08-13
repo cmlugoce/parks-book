@@ -23,9 +23,9 @@ class TrailsController < ApplicationController
      
       @trail = @park.trails.new(trail_params)
       
-      if @trail.save
+      if @trail.save!
         flash[:msg] = "Trail created!"
-        redirect_to trail_path(@trail)
+        redirect_to trail_path(@trail.id)
   
       else
         render :new
@@ -40,11 +40,21 @@ class TrailsController < ApplicationController
       @trail.update(trail_params)
       if @trail.save
         flash[:msg] = "Trail updated!"
-        redirect_to trails_path(@trail)
+        redirect_to trail_path(@trail)
       else
         render :edit
       end
   
+    end
+
+    def trails_by_distance
+      list = Trail.search(params[:search]).order("created_at DESC")
+      if !list.empty?
+        @trails = list
+      else
+        flash[:notice] = "There are no trails matching the input."
+        redirect_to trails_path
+      end
     end
   
     def destroy
