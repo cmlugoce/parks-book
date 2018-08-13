@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :trails, only: [:index, :create] 
 
- # resources :comments, only: [:index, :new, :create]
+  get '/trails_by_distance' => 'trails#trails_by_distance'
 
  
 
