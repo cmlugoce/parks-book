@@ -19,6 +19,7 @@
               <% if flash[:msg] %>
                 <div class="alert alert-success" role="alert"><%= flash[:msg] %></div>
               <% end %>
+              <%= console %>
     <%= yield %>
   </body>
 </html>

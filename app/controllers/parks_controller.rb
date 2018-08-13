@@ -18,7 +18,7 @@ class ParksController < ApplicationController
     def create 
         @user = User.find(params[:user_id])
         @park = @user.parks.build(park_params)
-        if @park.save
+        if @park.save!
             flash[:msg] = "Park created!"
             redirect_to park_path(@park)
         else

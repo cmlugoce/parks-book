@@ -1,9 +1,9 @@
-<h1><%= @trail.user.username %>'s Adventure</h1>
+
 <h2>Trail Name: <%= @trail.name %></h2>
 <h3>Park Name: <%= @trail.park.name %></h3>
 
  <p class="item1">Distance:&nbsp;&nbsp;&nbsp;<%= @trail.distance %> miles</p><br>
- <p class="item1">Date:&nbsp;&nbsp;&nbsp;<%= @trail.date %>
+ <p class="item1">Date:&nbsp;&nbsp;&nbsp;<%= @trail.date.strftime('%B, %d %Y') %>
 </div> </p><br>
 
  <h4>Trail Notes: <%= @trail.description %></h4>
@@ -12,6 +12,13 @@
      <%= link_to "Delete Trail", trail_path(@trail), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
 
     <% end %></p>
+    <div class="col-md-4 col-sm-6 col-xs-12-B-1">
+    <%= image_tag @trail.image.url if @trail.image?  %>
+    <br><br>
+   
+    
+  </div>
+</div>
    
     <%= link_to "Home", root_path %> |
     <%= link_to "Profile", user_path(@trail.user) %> |<br>
@@ -32,12 +39,15 @@
     <h2> Comments: (<%= @trail.comments.count %>) </h2>
     <% @trail.comments.each do |comment| %>
    <br></br>
-    <strong class="commentUserName"><%= comment.trail.user.username %></strong> says: <br>
-    </br>
+   <div class="well">
+    <strong class="commentUserName"><%= comment.user.username %></strong> says: <br>
+    
     <span class="commentContent"><%= comment.body %></span>
      <p class="text-muted">Added  on
     <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
   </div>
+  
+  
   <% end %>
-
-   
+  
+  

@@ -50,7 +50,7 @@ class TrailsController < ApplicationController
     def destroy
       @trail.destroy
       flash[:msg] = "Trail deleted!"
-      redirect_to park_trails_path
+      redirect_to trails_path
   
     end
   

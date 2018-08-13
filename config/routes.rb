@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :parks, only: [:index]
 
-  #resources :trails, only: [:show, :index, :create] 
+  resources :trails, only: [:index, :create] 
 
  # resources :comments, only: [:index, :new, :create]
 

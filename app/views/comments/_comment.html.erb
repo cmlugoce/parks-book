@@ -1,7 +1,13 @@
-<div class="well">
-  
- 
-  <blockquote>
-    <p><%= comment.body %></p>
-  </blockquote>
+<div class="box">
+  <article class="media">
+    <div class="media-content">
+      <div class="content">
+        <p>
+         
+        </p>
+      </div>
+    </div>
+     <%= link_to 'Delete', comments_path,
+                  method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } %>
+  </article>
 </div>
