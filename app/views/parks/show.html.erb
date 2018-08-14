@@ -1,4 +1,15 @@
 <h1><%= @park.user.username %>'s Adventure</h1>
+
+<div class="center">
+
+    <div class="col-md-5">
+     <div class: 'img-fluid'>
+    <%= image_tag @park.image.url(:medium) if @park.image? %>
+    </div>
+   
+    </div>
+    
+  </div>
 <h2> Park Name: <%= @park.name %></h5><br>
  <p class="item1">Location:&nbsp;&nbsp;&nbsp;<%= @park.location %></p><br>
  <p> <%  @park.trails.each do |trail|%></p>

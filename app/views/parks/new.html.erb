@@ -9,6 +9,11 @@
   <%= f.label :location %><br>
   <%= f.text_field :location %>
 </div>
+
+<div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+</div>
 <%= f.hidden_field :user_id, :value => current_user.id%>
       <%= f.submit "Submit", class:"submit" %>
 <% end %>
