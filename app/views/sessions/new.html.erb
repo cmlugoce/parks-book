@@ -1,7 +1,7 @@
 <h1>Log In</h1>
 <hr/>
 <%= form_tag login_path do %>
-  <label>Username: </label><%= collection_select :user, :username, User.all, :username, :username, {prompt: true} %><br/>
-  <label>Password: </label><input type="password" name="user[password]" id="password"><br/>
+  <label>Username: </label> <%= collection_select :user, :username, User.all, :username, :username, {prompt: true} %><br/>
+  <label>Password: </label> <input type="password" name="user[password]" id="password"><br/>
   <input type="submit" value="Log In">
 <% end %>
