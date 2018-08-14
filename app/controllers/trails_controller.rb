@@ -38,7 +38,7 @@ class TrailsController < ApplicationController
   
     def update
       @trail.update(trail_params)
-      if @trail.save
+      if @trail.save!
         flash[:msg] = "Trail updated!"
         redirect_to trail_path(@trail)
       else

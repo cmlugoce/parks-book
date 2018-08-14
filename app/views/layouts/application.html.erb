@@ -11,50 +11,47 @@
   </head>
 
   <body>
-  <div class="wrapper">
-     <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #00BFFF;">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <% if logged_in? %>
+  
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <% if logged_in? %>
             <a class="navbar-brand" href="/trails" style="color:white;">Parks-book</a>
           <% else %>
             <a class="navbar-brand" href="/" style="color:white;">Parks-book</a>
           <% end %>
-        </div>
+      
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      
+      <ul class="nav navbar-nav navbar-right">
+      
+      <% if !logged_in? %>
+        <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      
+      <% end %>
 
+      <% if current_user %>
+      <li><%= link_to "Welcome, #{current_user.username}!", user_path(current_user) %></li>
+    
+      
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <% if !logged_in? %>
-
-              <li><a href="/signup" style="color: white;">Signup</a></li>
-              <li><a href="/login" style="color: white;">Log In</a></li>
-            <% end %>
-            <% if current_user %>
-          <li><%= link_to "Welcome, #{current_user.username}!", user_path(current_user) %></li>
-        <% end %>
+               
+           <li><a href="/parks" style="color: white;">Parks</a></li>
+          <li><a href="/trails" style="color: white;">Trails</a></li>
+          <li><a href="/logout" style="color: white;">Log Out</a></li>
           
-
-            <% if logged_in? %>
-
-              
-               <li><a href="/parks" style="color: white;">Parks</a></li>
-              <li><a href="/trails" style="color: white;">Trails</a></li>
-              <li><a href="/logout" style="color: white;">Log Out</a></li>
-              
-            <% end %>
-            
-
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+        <% end %>
+        </ul>
+    </div>
+  </div>
+</nav>
     <br></br>
 
   <% if flash[:notice] %>
@@ -72,7 +69,7 @@
                     <%= number_field_tag :search, params[:search], placeholder: " whole miles", class: "search-input" %>
                     <%= submit_tag "Search", class: "btn-sm", :name => nil %>
                 <% end %>
-    <footer class="branding">
+    <footer  class="container-fluid text-center">
         <center><small>&copy; 2018 <strong>Parks-book </strong>All Rights Reserved.</small></center>
       </footer>
     </div>
