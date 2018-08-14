@@ -5,7 +5,7 @@
     <div class="row row-flex">
       <div class="col-md-4 col-sm-6 col-xs-12-A">
         <%= image_tag trail.image.url, class:'img-fluid' %><br><br>
-        <small class='user-link'>User: <%= link_to trail.user.username, user_path(trail.user) %></small>
+        <small class='user-link'>User: <%= link_to trail.user.name, user_path(trail.user) %></small>
       </div>
 
       <div class="box-div">

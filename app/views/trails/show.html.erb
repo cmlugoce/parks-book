@@ -35,7 +35,7 @@
     </br>
     <br>
     </br>
-   <div class="pull-left">
+   <div class="center">
    <div class="container">
     <% if current_user %>
     <h4>Add a comment:</h4>
@@ -52,9 +52,7 @@
     <% @trail.comments.each do |comment| %>
    <br></br>
    <div class="well">
-    <strong class="commentUserName"><%= comment.user.username %></strong> says: <br>
-    
-    <span class="commentContent"><%= comment.body %></span>
+    <strong class="commentUserName"><%= comment.user.name %></strong> says: <br></br><span class="commentContent"><%= comment.body %></span>
      <p class="text-muted">Added  on
     <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
   </div>

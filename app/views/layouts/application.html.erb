@@ -38,7 +38,7 @@
       <% end %>
 
       <% if current_user %>
-      <li><%= link_to "Welcome, #{current_user.username}!", user_path(current_user) %></li>
+      <li><%= link_to "Welcome, #{current_user.name}!", user_path(current_user) %></li>
     
       
 
@@ -61,6 +61,7 @@
               <% if flash[:msg] %>
                 <div class="alert alert-success" role="alert"><%= flash[:msg] %></div>
               <% end %>
+              
               <%= console %>
     <%= yield %>
 

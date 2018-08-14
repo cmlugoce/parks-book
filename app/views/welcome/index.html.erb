@@ -1,7 +1,10 @@
 <center>
-<div class="welcome">
-<h1> Welcome to Parks-book! </h1>
-
+<% if current_user %>
+Welcome, <%= current_user.name %>!
+  
+<% else %>
+  <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<% end %>
 <h2> With Parks-book is extremely easy to keep your hiking trails and parks updated!</h2>
     </div>
     </center> 

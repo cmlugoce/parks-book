@@ -1,6 +1,6 @@
 
 
-<h1> <%= @user.username %>'s Parks </h1>
+<h1> <%= @user.name %>'s Parks </h1>
 
 <% if @user == current_user %>
  <h2> You have logged <%= "#{@user.parks.size}"%> park(s)</h2>
@@ -14,6 +14,8 @@
     
     <h3> Park location <%= park.location %></h3>
 <% end %>
+
+
 
 
 <% if current_user %>

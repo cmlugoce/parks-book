@@ -1,7 +1,16 @@
+<center>
 <h1>Log In</h1>
 <hr/>
 <%= form_tag login_path do %>
-  <label>Username: </label> <%= collection_select :user, :username, User.all, :username, :username, {prompt: true} %><br/>
-  <label>Password: </label> <input type="password" name="user[password]" id="password"><br/>
+  <label>Name:&nbsp;&nbsp;&nbsp;&nbsp </label> <%= collection_select :user, :name, User.all, :name, :name, {prompt: true} %><br></br>
+  <label>Password:&nbsp;&nbsp </label> <input type="password" name="user[password]" id="password"><br><br/>
   <input type="submit" value="Log In">
 <% end %>
+
+
+
+<div class="col">
+<a href="/auth/facebook" class="fb btn">
+          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+        </a>
+        </center>
