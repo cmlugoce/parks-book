@@ -2,13 +2,18 @@
 <h1> Sign Up </h1>
 
 <%= form_for @user do |f| %>
-    <div class="form-group">
-        
-        
+       <div class="form-group">
+        <label for="username">Username:</label><br>     
         <%= f.text_field :username, placeholder: "Username" %><br>
-        <%= f.email_field :email, placeholder: "Email" %><br><br>
+        </div>
+        <div class="form-group">
+        <label for="email">Email address:</label><br>
+        <%= f.email_field :email, placeholder: "Email" %>
+        </div>
+        <div class="form-group">
+        <label for="pwd">Password:</label><br>
         <%= f.password_field :password, placeholder: "Password (6 char min)" %><br><br>
-        
+        </div>
         <%= f.submit "Submit" %>
         </div>
 
