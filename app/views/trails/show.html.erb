@@ -1,12 +1,16 @@
 
-<h2>Trail Name: <%= @trail.name %></h2>
+
 <div class="center">
-    <div class="col-md-4 col-sm-6 col-xs-12-B-1">
-    <%= image_tag @trail.image.url(:medium) if @trail.image?  %>
-    <br><br>
+
+    <div class="col-md-5">
+     <div class: 'img-fluid'>
+    <%= image_tag @trail.image.url(:medium) if @trail.image? %>
+    </div>
    
     </div>
+    
   </div>
+  <h2>Trail Name: <%= @trail.name %></h2>
 <h3>Park Name: <%= @trail.park.name %></h3>
 
 
@@ -30,7 +34,9 @@
 
     </br>
     <br>
-   <div>
+    </br>
+   <div class="pull-left">
+   <div class="container">
     <% if current_user %>
     <h4>Add a comment:</h4>
       <%= form_for @comment, url: trail_comments_path(@trail, @comment)  do |f| %>
@@ -51,6 +57,7 @@
     <span class="commentContent"><%= comment.body %></span>
      <p class="text-muted">Added  on
     <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
+  </div>
   </div>
   </div>
   
