@@ -12,12 +12,17 @@
     <%= f.date_field :date %>
   </div>
   </div>
-  
+  <div class="field">
+    <%= f.label "Notes" %><br>
+    <%= f.text_field :description %>
+  </div>
+
   <div class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
+
     <%= f.hidden_field :user_id, :value => current_user.id%> 
-    <%= f.hidden_field :park_id, :value => params[:park_id]%>
+    <%= f.hidden_field :park_id, :value => params[:park_id]%><br>
 
         <%= f.submit "Create Trail", class:"submit" %>
 <% end %>
