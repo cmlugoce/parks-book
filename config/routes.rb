@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+  get '/auth/facebook/callback' => 'sessions#facebook'
+  #get 'login', to: redirect('/auth/google_oauth2'), as: 'login'
   
 
 end
