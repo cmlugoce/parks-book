@@ -1,20 +1,22 @@
 
 
-<h1> Welcome <%= @user.username %> </h1>
+<h1> <%= @user.username %>'s Parks </h1>
 
-<h2> You have logged <%= @user.parks.size %> Parks!!</h2>
+<% if @user == current_user %>
+ <h2> You have logged <%= "#{@user.parks.size}"%> park(s)</h2>
+ <% else %>
+ <h2>Parks logged: <%= "#{@user.parks.size}" %></h2>
+<% end %>
 
 <% @user.parks.each do |park| %>
     
-    <h2><%= park.name %></h2>
-    <p><%= park.user.username %></p>
-    <p><%= park.location %></p>
+    <h2>Park Name: <%= link_to park.name, park_path(park), class:'name' %></h2>
+    
+    <h3> Park location <%= park.location %></h3>
 <% end %>
 
-<%= link_to "Home", root_path %> |
+
 <% if current_user %>
 <%= link_to "Add a Park", new_user_park_path(@user) %> |
-<%= link_to "Logout", logout_path %> |
 
 <% end %>
-<%= link_to "Park Index", parks_path %>
