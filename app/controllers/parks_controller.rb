@@ -39,6 +39,16 @@ class ParksController < ApplicationController
         end 
     end 
 
+    def parks_by_location
+        list = Park.search(params[:search]).order("created_at DESC")
+        if !list.empty?
+          @parks = list
+        else
+          flash[:notice] = "There are no trails matching the input."
+          redirect_to parks_path
+        end
+      end
+
     def destroy
         @park = Park.find(params[:id])
         @park.destroy

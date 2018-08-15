@@ -56,6 +56,16 @@ class TrailsController < ApplicationController
         redirect_to trails_path
       end
     end
+
+    def trails_by_difficulty
+    list = Trail.search2(params[:search]).order("created_at DESC")
+    if !list.empty?
+      @trails = list
+    else
+      flash[:notice] = "There are no trails matching the input."
+      redirect_to trails_path
+    end
+  end
   
     def destroy
       @trail.destroy
@@ -72,6 +82,6 @@ class TrailsController < ApplicationController
     end
   
     def trail_params
-      params.require(:trail).permit(:name, :image, :distance, :date, :description, :user_id)
+      params.require(:trail).permit(:name, :image, :distance, :date, :description, :difficulty, :user_id)
     end
   end

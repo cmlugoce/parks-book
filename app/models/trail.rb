@@ -12,4 +12,8 @@ class Trail < ApplicationRecord
   where("distance LIKE ? ", "#{search}")
 end
 
+def self.search2(search)
+  where("difficulty LIKE ? ", "#{search}")
+end
+
 end
