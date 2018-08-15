@@ -1,0 +1,20 @@
+<h4>Trails by location:</h4><br><br>
+
+<% @parks.order("created_at asc").each do |park| %>
+  <div class='park-card'>
+    <div class="row row-flex">
+      <div class="col-md-4 col-sm-6 col-xs-12-A">
+        <%= image_tag park.image.url, class:'img-fluid' %><br><br>
+        <small class='user-link'>User: <%= link_to park.user.name, user_path(park.user) %></small>
+      </div>
+
+      <div class="box-div">
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12-B">
+        <h6><%= link_to park.name, park_path(park), class:'name' %></h6><br><br>
+        
+      </div>
+    </div>
+  </div>
+<% end %>
