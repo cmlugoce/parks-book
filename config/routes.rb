@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   resources :trails, only: [:index, :create] 
 
   get '/trails_by_distance' => 'trails#trails_by_distance'
+  get '/trails_by_difficulty' => 'trails#trails_by_difficulty'
+  get '/parks_by_location' => 'parks#parks_by_location'
+
+
 
  
 
