@@ -10,20 +10,24 @@
     </div>
     
   </div>
+  <div class = "pull-left">
 <h2> Park Name: <%= @park.name %></h5><br>
- <p class="item1">Location:&nbsp;&nbsp;&nbsp;<%= @park.location %></p><br>
- <p> <%  @park.trails.each do |trail|%></p>
-    <%= link_to trail.name, trail_path(trail) %>
-    <% end %>
+ <p class="item1">Location: &nbsp;&nbsp;&nbsp;<%= @park.location %></p><br>
+ <h3 class="item1">Trails:&nbsp;&nbsp;&nbsp;</h3><br>
  
-  <p id="park-links"><% if current_user.parks.include?(@park) %>
-      <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %>&nbsp;&nbsp;&nbsp;
-      <%= link_to "Add new trails", new_park_trail_path(@park) %>
+    <%  @park.trails.each do |trail|%></>
+   <%= link_to trail.name, trail_path(trail) %>
+  
+   <% end %>
+    
+ 
+  <h3 id="park-links"><% if current_user.parks.include?(@park) %>
+      <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %><br></br>
+      <%= link_to "Add new trails", new_park_trail_path(@park) %><br></br>
      <%= link_to "Delete Park", park_path(@park), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
 
-    <% end %></p>
-
-    <%= link_to "Home", root_path %> |
-    <%= link_to "Profile", user_path(@park.user) %>
+    <% end %></h3>
+</div>
+    
    
     

@@ -16,7 +16,10 @@
     <%= f.label "Notes" %><br>
     <%= f.text_field :description %>
   </div>
-
+  <div class="field">
+    <%= f.label :difficulty %><br>
+    <%= f.select :difficulty, ['Easy', 'Moderate', 'Difficult']%>
+    </div>
   <div class="field">
     <%= f.label :image %><br>
     <%= f.file_field :image %>

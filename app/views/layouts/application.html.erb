@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ParkBook</title>
+    <title>ParksBook</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -52,6 +52,32 @@
     </div>
   </div>
 </nav>
+
+<div id="sidebar-wrapper">
+
+<ul class="sidebar-nav">
+  <li class="sidebar-brand">
+  <li>
+  <p class="search-p">Trails by distance</p>
+  <%= form_tag('/trails_by_distance', :method => "get", id: "search-form") do %>
+      <%= number_field_tag :search, params[:search], placeholder: " whole miles", class: "search-input" %>
+      <%= submit_tag "Search", class: "btn-sm", :name => nil %>
+  <% end %>
+</li>
+<li>
+  <p class="search-p">Trails by difficulty</p>
+  <%= form_tag('/trails_by_difficulty', :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: " Easy, Moderate, Hard", class: "search-input" %>
+      <%= submit_tag "Search", class: "btn-sm", :name => nil %>
+  <% end %>
+  <p class="search-p">Parks by location</p>
+  <%= form_tag('/parks_by_location', :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], class: "search-input" %>
+      <%= submit_tag "Search", class: "btn-sm", :name => nil %>
+  <% end %>
+</li>
+</ul>
+</div>
     <br></br>
 
   <% if flash[:notice] %>
