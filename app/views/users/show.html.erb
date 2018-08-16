@@ -18,7 +18,7 @@
 
 <br></br>
 
-<% if current_user %>
+<% if @user == current_user %>
 <h3><%= link_to "Add a Park", new_user_park_path(@user) %></h3>
 
 <% end %>

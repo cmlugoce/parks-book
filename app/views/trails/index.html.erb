@@ -9,3 +9,20 @@
 
 <% end %>
 
+
+
+<br></br>
+
+<h4> Search for trails </h4>
+
+<p class="search-p">Trails by distance</p>
+  <%= form_tag('/trails_by_distance', :method => "get", id: "search-form") do %>
+      <%= number_field_tag :search, params[:search], placeholder: " whole miles", class: "search-input" %>
+      <%= submit_tag "Search", class: "btn-sm", :name => nil %>
+  <% end %>
+
+  <p class="search-p">Trails by difficulty</p>
+  <%= form_tag('/trails_by_difficulty', :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: " Easy, Moderate, Hard", class: "search-input" %>
+      <%= submit_tag "Search", class: "btn-sm", :name => nil %>
+  <% end %>

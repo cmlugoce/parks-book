@@ -22,6 +22,7 @@
       </button>
       <% if logged_in? %>
             <a class="navbar-brand" href="/trails" style="color:white;">Parks-book</a>
+           
           <% else %>
             <a class="navbar-brand" href="/" style="color:white;">Parks-book</a>
           <% end %>
@@ -53,32 +54,7 @@
   </div>
 </nav>
 
-<div id="sidebar-wrapper">
 
-<ul class="sidebar-nav">
-  <li class="sidebar-brand">
-  <li>
-  <p class="search-p">Trails by distance</p>
-  <%= form_tag('/trails_by_distance', :method => "get", id: "search-form") do %>
-      <%= number_field_tag :search, params[:search], placeholder: " whole miles", class: "search-input" %>
-      <%= submit_tag "Search", class: "btn-sm", :name => nil %>
-  <% end %>
-</li>
-<li>
-  <p class="search-p">Trails by difficulty</p>
-  <%= form_tag('/trails_by_difficulty', :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], placeholder: " Easy, Moderate, Hard", class: "search-input" %>
-      <%= submit_tag "Search", class: "btn-sm", :name => nil %>
-  <% end %>
-  <p class="search-p">Parks by location</p>
-  <%= form_tag('/parks_by_location', :method => "get", id: "search-form") do %>
-      <%= text_field_tag :search, params[:search], class: "search-input" %>
-      <%= submit_tag "Search", class: "btn-sm", :name => nil %>
-  <% end %>
-</li>
-</ul>
-</div>
-    <br></br>
 
   <% if flash[:notice] %>
                 <div class="alert alert-danger" role="alert"><%= flash[:notice] %></div>
