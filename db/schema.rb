@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_003315) do
+ActiveRecord::Schema.define(version: 2018_08_17_182051) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "park_id"
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_003315) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
@@ -91,8 +90,6 @@ ActiveRecord::Schema.define(version: 2018_08_15_003315) do
     t.string "name"
     t.text "uid"
     t.string "provider"
-    t.string "oauth_token"
-    t.datetime "oauth_expires_at"
   end
 
 end
