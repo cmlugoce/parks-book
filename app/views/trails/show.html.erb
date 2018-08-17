@@ -50,17 +50,18 @@
   <% else %>
     <p>Please log in order to add a comment.</p>
   <% end %>
- 
+   </div>
+  
     <h2> Comments: (<%= @trail.comments.count %>) </h2>
-    <% @trail.comments.each do |comment| %>
-   <br></br>
+      <% @trail.comments.each do |comment| %>
+   
    <div class="well">
-    <strong class="commentUserName"><%= comment.user.name %></strong> says: <br></br>
-    <p class="commentContent"><%= comment.body %></p>
+    <strong><%= comment.user.name %></strong> says: <br></br>
+      <p><%= comment.body %></p>
      <p class="text-muted">Added  on
-    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
-  </div>
+     <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
  </div>
+
  </div>
  
  </section>
