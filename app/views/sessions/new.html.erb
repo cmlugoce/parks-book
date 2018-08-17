@@ -1,8 +1,20 @@
+
+ <% if @user.errors.any? %>
+ <div class="alert alert-danger" role="alert">
+   <p> Sign Up Failed: </p>
+   <ul>
+     <% @user.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+       <% end %>
+     </ul>
+   </div>
+<% end %>
+</div>
 <center>
 <h1>Log In</h1>
 <hr/>
 <%= form_tag login_path do %>
-  <label>Name:&nbsp;&nbsp;&nbsp;&nbsp </label> <%= collection_select :user, :name, User.all, :name, :name, {prompt: true} %><br></br>
+  <label>Name:&nbsp;&nbsp;&nbsp;&nbsp </label> <input type="name" name="user[name]" id="name"><br><br/>
   <label>Password:&nbsp;&nbsp </label> <input type="password" name="user[password]" id="password"><br><br/>
   <input type="submit" value="Log In">
 <% end %>
@@ -14,3 +26,5 @@
           <i class="fa fa-facebook fa-fw"></i> Login with Facebook
         </a>
         </center>
+
+       
