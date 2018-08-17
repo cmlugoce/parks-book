@@ -1,13 +1,15 @@
 class ParksController < ApplicationController
     
     before_action :logged_in?, only: [:index, :edit, :update, :destroy]
+    before_action :set_park, only: [:show, :edit, :update, :destroy]
     before_action :validate_user
+    skip_before_action :require_login, only: [:index]
     def index 
         @parks = Park.all 
     end 
 
     def show 
-        @park = Park.find(params[:id])      
+             
         
     end 
 
@@ -18,7 +20,7 @@ class ParksController < ApplicationController
     def create 
         @user = User.find(params[:user_id])
         @park = @user.parks.build(park_params)
-        if @park.save!
+        if @park.save
             flash[:msg] = "Park created!"
             redirect_to park_path(@park)
         else
@@ -27,9 +29,8 @@ class ParksController < ApplicationController
     end 
 
     def edit 
-        @park = Park.find(params[:id])
-    end 
-
+       
+    end
     def update
         
         @park = current_user.parks.find(params[:id])
@@ -50,13 +51,18 @@ class ParksController < ApplicationController
       end
 
     def destroy
-        @park = Park.find(params[:id])
+        @park = current_user.parks.find(params[:id])
         @park.destroy
         flash[:msg] = "Park deleted!"
         redirect_to parks_path
     end 
 
     private 
+
+    def set_park
+        @park = Park.find(params[:id]) 
+
+    end 
     def park_params
         params.require(:park).permit(:name, :location, :image, :remove_image, :user_id)
       end

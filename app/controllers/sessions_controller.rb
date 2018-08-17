@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create, :facebook]
+ skip_before_action :require_login, only: [:new, :create, :facebook]
   
   def destroy
     session.clear
@@ -11,15 +11,16 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params[:user][:username])
+    @user = User.find_by(name: params[:user][:name])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      render :new
+      flash[:notice] = "Log In failed, please try again."
+      redirect_to login_path
   end
 
-  
+
 end
 
 def facebook

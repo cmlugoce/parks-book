@@ -1,5 +1,8 @@
 class TrailsController < ApplicationController
     before_action :set_trail, only: [:show, :edit, :update, :destroy]
+    before_action :logged_in?, only: [:index, :edit, :update, :destroy]
+    before_action :validate_user
+    skip_before_action :require_login, only: [:index]
 
     def index
       @trails = Trail.all
@@ -23,7 +26,7 @@ class TrailsController < ApplicationController
      
       @trail = @park.trails.new(trail_params)
       
-      if @trail.save!
+      if @trail.save
         flash[:msg] = "Trail created!"
         redirect_to trail_path(@trail.id)
   
@@ -38,7 +41,7 @@ class TrailsController < ApplicationController
   
     def update
       @trail.update(trail_params)
-      if @trail.save!
+      if @trail.save
         flash[:msg] = "Trail updated!"
         redirect_to trail_path(@trail)
       else
