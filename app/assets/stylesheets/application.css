@@ -22,17 +22,16 @@
     background-color: green;
     font-family: 'Ubuntu', sans-serif;
     font-size: 20px;
+    
 
   }
   
   .navbar-brand {
     font-size: 25px;
     font-weight: bold;
-  }
+      }
   
-  .branding {
-    clear: both;
-  }
+  
 
   footer.text-center {
     position: fixed;
@@ -43,4 +42,7 @@
     text-align: center;
  }
 
-  
+  .navbar-right a {
+
+    color: white;
+  }
