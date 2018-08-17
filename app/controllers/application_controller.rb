@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
     helper_method :logged_in?
     helper_method :validate_user
-    before_action :require_login, except: [:new, :create, :index]
+    before_action :require_login, except: [:new, :index]
 
     def current_user
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
