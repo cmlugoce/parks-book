@@ -6,6 +6,8 @@ class Trail < ApplicationRecord
  
  mount_uploader :image, ImageUploader
  validates_presence_of :name, :distance
+
+
  
 
  def self.search(search)
