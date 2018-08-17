@@ -1,15 +1,18 @@
 
-
-<div class="center">
-
-    <div class="col-md-5">
-     <div class: 'img-fluid'>
-    <%= image_tag @trail.image.url(:medium) if @trail.image? %>
-    </div>
+<section id="photo">
    
-    </div>
-    
-  </div>
+<div class="container">
+<div class="row">
+
+<div class="col-md-5">
+<br></br>
+<%= image_tag @trail.image.url(:medium) if @trail.image?%>
+</div>
+
+
+
+<div class="col-md-5">
+
   <h2>Trail Name: <%= @trail.name %></h2>
 <h3>Park Name: <%= link_to @trail.park.name, park_path(@trail.park) %></h3>
 
@@ -23,18 +26,19 @@
      <%= link_to "Delete Trail", trail_path(@trail), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
 
     <% end %></h4>
-   
+    </div>
+    </div>
+    </section>
+
     
-
-
-   
+  
     
-
-    </br>
-    <br>
-    </br>
-   <div class="center">
-   <div class="container">
+   <div class="box-div">
+   </div>
+    
+    <section id='comments'>
+    
+      <div class='container'>
     <% if current_user %>
     <h4>Add a comment:</h4>
       <%= form_for @comment, url: trail_comments_path(@trail, @comment)  do |f| %>
@@ -46,16 +50,22 @@
   <% else %>
     <p>Please log in order to add a comment.</p>
   <% end %>
+ 
     <h2> Comments: (<%= @trail.comments.count %>) </h2>
     <% @trail.comments.each do |comment| %>
    <br></br>
    <div class="well">
-    <strong class="commentUserName"><%= comment.user.name %></strong> says: <br></br><span class="commentContent"><%= comment.body %></span>
+    <strong class="commentUserName"><%= comment.user.name %></strong> says: <br></br>
+    <p class="commentContent"><%= comment.body %></p>
      <p class="text-muted">Added  on
     <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
   </div>
-  </div>
-  </div>
+ </div>
+ </div>
+ 
+ </section>
+  
+  
   
   
   <% end %>

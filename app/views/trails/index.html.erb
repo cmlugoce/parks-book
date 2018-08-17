@@ -1,28 +1,38 @@
-<center>
-<h1>All Trails</h1>
 
+<div class="trails-index">
+<div class='wrapper'>
+
+<h1>All Trails</h1>
 <% @trails.each do |trail| %>
 
 <h2>Trail Name: <%= link_to trail.name, trail_path(trail), class:'name' %></h2><br><br>
-<p>Posted by: <%= link_to trail.user.name, user_path(trail.user) %></p>
+<h3>Posted by: <%= link_to trail.user.name, user_path(trail.user) %></h3>
 
 
 <% end %>
 
-
-
+</div>
+</div>
 <br></br>
 
-<h4> Search for trails </h4>
 
-<p class="search-p">Trails by distance</p>
+
+<div class="search" id="trails">
+<h4> Search for trails </h4>
+<div class="row">
+<div class="col-md-5">
+<p class="search-t">Trails by distance</p>
   <%= form_tag('/trails_by_distance', :method => "get", id: "search-form") do %>
       <%= number_field_tag :search, params[:search], placeholder: " whole miles", class: "search-input" %>
       <%= submit_tag "Search", class: "btn-sm", :name => nil %>
   <% end %>
-
-  <p class="search-p">Trails by difficulty</p>
+  </div>
+  <div class="col-md-5">
+  <p class="search-t">Trails by difficulty</p>
   <%= form_tag('/trails_by_difficulty', :method => "get", id: "search-form") do %>
       <%= text_field_tag :search, params[:search], placeholder: " Easy, Moderate, Hard", class: "search-input" %>
       <%= submit_tag "Search", class: "btn-sm", :name => nil %>
   <% end %>
+  </div>
+  </div>
+  </div>

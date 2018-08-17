@@ -1,33 +1,34 @@
 <h1><%= @park.user.name %>'s Adventure</h1>
+<div class="container">
+<div class="row">
 
-<div class="center">
-
-    <div class="col-md-5">
-     <div class: 'img-fluid'>
+<div class="col-md-5">
+<br></br>
     <%= image_tag @park.image.url(:medium) if @park.image? %>
     </div>
-   
-    </div>
     
-  </div>
-  <div class = "pull-left">
+    
+ 
+<div class="col-md-5">
 <h2> Park Name: <%= @park.name %></h5><br>
- <p class="item1">Location: &nbsp;&nbsp;&nbsp;<%= @park.location %></p><br>
+ <h3 class="item1">Location: &nbsp;&nbsp;&nbsp;<%= @park.location %></h3><br>
  <h3 class="item1">Trails:&nbsp;&nbsp;&nbsp;</h3><br>
  
     <%  @park.trails.each do |trail|%></>
-   <%= link_to trail.name, trail_path(trail) %>
+  <h3> <%= link_to trail.name, trail_path(trail) %></h3>
   
    <% end %>
     
- 
-  <h3 id="park-links"><% if current_user.parks.include?(@park) %>
+ <br></br>
+  <h4 id="park-links"><% if current_user.parks.include?(@park) %>
       <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %><br></br>
       <%= link_to "Add new trails", new_park_trail_path(@park) %><br></br>
      <%= link_to "Delete Park", park_path(@park), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
 
-    <% end %></h3>
-</div>
-    
+    <% end %></h4>
+
+    </div>
+
+   </div>
    
-    
+    </div>

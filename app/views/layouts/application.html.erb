@@ -12,7 +12,7 @@
 
   <body>
   
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse ">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -33,12 +33,14 @@
       <ul class="nav navbar-nav navbar-right">
       
       <% if !logged_in? %>
+
         <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       
       <% end %>
 
       <% if current_user %>
+      
       <li><%= link_to "Welcome, #{current_user.name}!", user_path(current_user) %></li>
     
       
@@ -64,7 +66,7 @@
                 <div class="alert alert-success" role="alert"><%= flash[:msg] %></div>
               <% end %>
               
-              <%= console %>
+              
     <%= yield %>
 
 
