@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
     has_many :parks, :dependent => :destroy
     has_many :trails, through: :parks
-    has_many:comments
+    has_many:comments, :dependent => :destroy
    
     def self.find_or_create_by_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
