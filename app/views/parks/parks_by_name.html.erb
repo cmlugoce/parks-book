@@ -1,0 +1,20 @@
+<h2>Parks by name:</h2><br><br>
+<div class = "container">
+<% @parks.order("created_at asc").each do |park| %>
+  <div class="row row-flex">
+      <div class="col-md-6"><br></br>
+        <%= image_tag park.image.url(:medium) if park.image? %><br><br>
+       
+      </div>
+
+     
+
+      <div class="col-md-4 ">
+      <h4 class='user-link'>User: <%= link_to park.user.name, user_path(park.user) %></h4>
+        <h5>Park:&nbsp;&nbsp;&nbsp; <%= link_to park.name, park_path(park), class:'name' %></h5><br><br>
+        
+      
+    </div>
+  
+<% end %>
+</div>

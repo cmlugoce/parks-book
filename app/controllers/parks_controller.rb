@@ -16,7 +16,7 @@ class ParksController < ApplicationController
     end 
 
     def create 
-        #@user = User.find(params[:user_id])
+        
         @park = current_user.parks.build(park_params)
         if @park.save
             flash[:msg] = "Park created!"
@@ -43,7 +43,17 @@ class ParksController < ApplicationController
         if !list.empty?
           @parks = list
         else
-          flash[:notice] = "There are no trails matching the input."
+          flash[:notice] = "There are no parks matching the input."
+          redirect_to parks_path
+        end
+      end
+
+      def parks_by_name
+        list = Park.search4(params[:search]).order("created_at DESC")
+        if !list.empty?
+          @parks = list
+        else
+          flash[:notice] = "There are no parks matching the input."
           redirect_to parks_path
         end
       end

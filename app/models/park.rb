@@ -10,4 +10,8 @@ class Park < ApplicationRecord
   def self.search(search)
     where("location LIKE ? ", "#{search}")
   end
+
+  def self.search4(search)
+    where("name LIKE ? ", "#{search}")
+  end
 end
