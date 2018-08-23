@@ -1,0 +1,7 @@
+<%= form_for @comment, url: trail_comments_path(@trail, @comment)  do |f| %>
+    <p><strong>Content</strong> <%= f.text_area :body, class: 'commentBox form-control'  %></p>
+    
+    <%= f.hidden_field :user_id, :value => current_user.id%> 
+    <%= f.hidden_field :trail_id, :value => :trail_id %>
+    <button type="submit" class="btn btn-sm btn-primary">Create Comment</button>
+  <% end %><br>

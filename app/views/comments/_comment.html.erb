@@ -1,13 +1,10 @@
-<div class="box">
-  <article class="media">
-    <div class="media-content">
-      <div class="content">
-        <p>
-         
-        </p>
-      </div>
-    </div>
-     <%= link_to 'Delete', comments_path,
-                  method: :delete, class: "button is-danger", data: { confirm: 'Are you sure?' } %>
-  </article>
+<% @trail.comments.each do |comment| %>
+   
+  <div class="well">
+   <strong><%= comment.user.name %></strong> says: <br></br>
+     <p><%= comment.body %></p>
+    <p class="text-muted">Added  on
+    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
+   
 </div>
+<% end %>
