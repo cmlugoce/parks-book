@@ -1,7 +1,5 @@
 class TrailsController < ApplicationController
     before_action :set_trail, only: [:show, :edit, :update, :destroy]
-    before_action :logged_in?, only: [:index, :edit, :update, :destroy]
-    before_action :validate_user
     skip_before_action :require_login, only: [:index]
 
     def index

@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :logged_in?
-  before_action :validate_user
+  before_action :require_login
   
       def create
         @trail = Trail.find(params[:trail_id])

@@ -1,8 +1,6 @@
 class ParksController < ApplicationController
-    
-    before_action :logged_in?, only: [:index, :edit, :update, :destroy]
+        
     before_action :set_park, only: [:show, :edit, :update, :destroy]
-    before_action :validate_user
     skip_before_action :require_login, only: [:index]
     def index 
         @parks = Park.all 
