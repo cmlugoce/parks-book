@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
  
   root 'welcome#index'
-  resources :users do 
-    shallow do 
+  resources :users, only: [:new, :create, :show] do 
+   shallow do 
     resources :parks do 
-      resources :trails do
-        resources :comments
+      resources :trails
       end 
-      
+     end 
+    end 
+
+     
+         
+      resources :trails do
+        shallow do
+        resources :comments
     end
-  end
+   
   end
 
   resources :parks, only: [:index]
