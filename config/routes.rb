@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/trails_by_distance' => 'trails#trails_by_distance'
   get '/trails_by_difficulty' => 'trails#trails_by_difficulty'
   get '/parks_by_location' => 'parks#parks_by_location'
+  get '/parks_by_name' => 'parks#parks_by_name'
 
 
 
