@@ -11,9 +11,9 @@
       
 
       <div class="col-md-4">
-      <h4 class='user-link'>User: <%= link_to trail.user.name, user_path(trail.user) %></h4>
-        <h5>Trail Name: <%= link_to trail.name, trail_path(trail), class:'name' %></h5><br><br>
-        <h5>Difficulty:&nbsp;&nbsp;&nbsp;<%= trail.difficulty %></h5>
+      <h5>Trail:&nbsp;&nbsp;&nbsp;<%= link_to trail.name, trail_path(trail), class:'name' %></h5>
+      <h5> User: <%= link_to trail.park.user.name, user_path(trail.park.user) %> </h5>
+      <h5 >Distance:&nbsp;&nbsp;&nbsp;<%= trail.distance %> miles</h5>
       </div>
     
   </div>

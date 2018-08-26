@@ -1,9 +1,11 @@
 
 <div class = 'users'>
 <div class='wrapper'>
-
-<h1> <%= @user.name %>'s Parks </h1>
-
+<% if current_user == @user %>
+    <h1 class="card-title">Hello <%= @user.name %>!</h1>
+  <% else %>
+    <h1 class="card-title"><%=@user.name%>'s profile page</h1>
+  <% end %>
 <% if @user == current_user %>
  <h2> You have logged <%= "#{@user.parks.size}"%> park(s)</h2>
  <% else %>

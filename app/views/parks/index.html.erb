@@ -4,15 +4,15 @@
 
 <% @parks.each do |park| %>
 
-<h2>Park Name: <%= link_to park.name, park_path(park), class:'name' %></h2><br><br>
-<p>Posted by: <%= link_to park.user.name, user_path(park.user) %> </p>
+<h2>Park Name: <%= link_to park.name, park_path(park), class:'name' %></h2>
 
-
+<h3>Posted by: <%= link_to park.user.name, user_path(park.user) %></h3><br></br>
 
 
 <% end %>
 </div>
 
-  
+ 
+
 
 

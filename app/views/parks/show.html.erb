@@ -1,4 +1,4 @@
-<h1><%= @park.user.name %>'s Adventure</h1>
+
 <div class="container">
 <div class="row">
 
@@ -16,7 +16,7 @@
  
     <%  @park.trails.each do |trail|%></>
   <h3> <%= link_to trail.name, trail_path(trail) %></h3>
-  
+   
    <% end %>
     
  <br></br>

@@ -24,7 +24,8 @@ class SessionsController < ApplicationController
 end
 
 def facebook
-  if auth = request.env["omniauth.auth"]
+  @auth = request.env["omniauth.auth"]
+  if @auth
     @user = User.find_or_create_by_omniauth(auth)
     session[:user_id] = @user.id
     redirect_to user_path(@user)

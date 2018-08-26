@@ -12,10 +12,10 @@ class TrailsController < ApplicationController
     end
   
     def show
-      if current_user
-        
-        @comment = current_user.comments.build(trail: @trail)
-      end
+      @comment = Comment.new
+    if current_user
+      @comment.user_id = current_user.id
+    end
      
     end
   
@@ -24,7 +24,7 @@ class TrailsController < ApplicationController
       @park = Park.find(params[:trail][:park_id])
      
       @trail = @park.trails.new(trail_params)
-      
+      #raise params.inspect
       if @trail.save
         flash[:msg] = "Trail created!"
         redirect_to trail_path(@trail.id)

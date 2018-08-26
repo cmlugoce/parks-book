@@ -5,9 +5,8 @@
 <h1>All Trails</h1>
 <% @trails.each do |trail| %>
 
-<h2>Trail Name: <%= link_to trail.name, trail_path(trail), class:'name' %></h2><br><br>
-<h3>Posted by: <%= link_to trail.user.name, user_path(trail.user) %></h3>
-
+<h2>Trail Name: <%= link_to trail.name, trail_path(trail), class:'name' %></h2>
+<h3>Posted by: <%= link_to trail.park.user.name, user_path(trail.park.user) %></h3><br></br>
 
 <% end %>
 

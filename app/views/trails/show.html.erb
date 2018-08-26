@@ -21,7 +21,11 @@
  <h4>Date:&nbsp;&nbsp;&nbsp;<%= @trail.date.strftime('%B, %d %Y') %></h4>
  <h4>Difficulty: <%= @trail.difficulty %></h4>
   <h4>Trail Notes: <%= @trail.description %></h4>
-  <h4 id="trail-links"><% if current_user.trails.include?(@trail) %>
+  <h4>Trail User: <%= @trail.park.user.name %></h4>
+  
+  
+  <% if current_user == @trail.park.user %>
+  <h4 id="trail-links">
       <%= link_to "Edit Trail", edit_trail_path(@trail), class: "edit-link" %>&nbsp;&nbsp;&nbsp;
      <%= link_to "Delete Trail", trail_path(@trail), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
 
