@@ -45,12 +45,33 @@
       <div class='container'>
     <% if current_user %>
     <h4>Add a comment:</h4>
-      <%= render 'comments/form' %>
+    <div class='new-comment'>
+    <%= form_for @comment, url: trail_comments_path(@trail, @comment)  do |f| %>
+        <p><strong>Content</strong> <%= f.text_area :body, class: 'commentBox form-control'  %></p>
+        
+        <%= f.hidden_field :user_id, :value => current_user.id%> 
+        <%= f.hidden_field :trail_id, :value => :trail_id %>
+        <button type="submit" class="btn btn-sm btn-primary">Create Comment</button>
+      <% end %><br>
+    
+      </div>
       <% end %>
    </div>
   
-    <h2> Comments: (<%= @trail.comments.count %>) </h2>
-    <%= render 'comments/comment' %>
+    <h2><%= link_to "Comments:", trail_comments_path(@trail), class: "comment-link" %> (<%=(@trail.comments.size)%>)</h2>
+    <section class='comment-sec'>
+<% @trail.comments.each do |comment| %>
+   
+  <div class="well">
+   <strong><%= comment.user.name %></strong> says: <br></br>
+     <p><%= comment.body %></p>
+    <p class="text-muted">Added  on
+    <%= l(comment.created_at, format: '%B, %d %Y %H:%M:%S') %></p>
+   
+</div>
+<% end %>
+
+</section>
 
  </div>
  
