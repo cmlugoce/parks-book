@@ -23,7 +23,7 @@
   <h4 id="park-links"><% if current_user.parks.include?(@park) %>
       <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %><br></br>
       <%= link_to "Add new trails", new_park_trail_path(@park) %><br></br>
-     <%= link_to "Delete Park", park_path(@park), :confirm => "Are you sure?", :method => :delete, class: "delete-link"%>
+     <%= link_to "Delete Park", park_path(@park), method: :delete, data: { confirm: 'Are you sure?' }%>
 
     <% end %></h4>
 
