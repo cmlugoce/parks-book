@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   get '/trails_by_difficulty' => 'trails#trails_by_difficulty'
   get '/parks_by_location' => 'parks#parks_by_location'
   get '/parks_by_name' => 'parks#parks_by_name'
+  get '/trails/:id/next', to: 'trails#next_trail'
+
+  get '/trails/:id/previous', to: 'trails#previous_trail'
 
 
 
