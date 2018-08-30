@@ -4,6 +4,10 @@ class TrailsController < ApplicationController
 
     def index
       @trails = Trail.all
+      respond_to do |format|
+        format.html {render :index}
+        format.json {render json: @trails, status: 200}
+      end
     end
   
     def new
@@ -16,16 +20,30 @@ class TrailsController < ApplicationController
     if current_user
       @comment.user_id = current_user.id
     end
-     
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json:  @trail }
+    end
+  end 
+    def next_trail
+      @trail = Trail.find(params[:id])
+      @next_trail = @trail.next
+      render json: @next_trail
+    end
+
+    def previous_trail
+      @trail = Trail.find(params[:id])
+      @previous_trail = @trail.previous
+      render json: @previous_trail
     end
   
     def create
       
       @park = Park.find(params[:trail][:park_id])
      
-      @trail = @park.trails.new(trail_params)
+      @trail = @park.trails.build(trail_params)
       #raise params.inspect
-      if @trail.save
+      if @trail.save!
         flash[:msg] = "Trail created!"
         redirect_to trail_path(@trail.id)
   
@@ -40,7 +58,7 @@ class TrailsController < ApplicationController
   
     def update
       @trail.update(trail_params)
-      if @trail.save
+      if @trail.save!
         flash[:msg] = "Trail updated!"
         redirect_to trail_path(@trail)
       else
@@ -70,7 +88,9 @@ class TrailsController < ApplicationController
   end
   
     def destroy
-      @trail.destroy
+     # @park = Park.find(params[:trail][:park_id])
+     #@trail = Trail.find(params[:id]) 
+     @trail.destroy
       flash[:msg] = "Trail deleted!"
       redirect_to trails_path
   
@@ -79,7 +99,7 @@ class TrailsController < ApplicationController
     private
   
     def set_trail
-      @trail = Trail.find_by_id(params[:id])
+      @trail = Trail.find(params[:id])
   
     end
   
