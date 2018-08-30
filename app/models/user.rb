@@ -8,8 +8,8 @@ class User < ApplicationRecord
     validates_length_of :password, :in => 6..20, :on => :create
 
     has_many :parks, :dependent => :destroy
-    has_many :comments
-    has_many :trails, through: :comments, :dependent => :destroy
+    has_many :comments, :dependent => :destroy
+    has_many :trails, through: :comments
    
     def self.find_or_create_by_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
