@@ -12,9 +12,9 @@ Rails.application.routes.draw do
      
          
       resources :trails do
-        shallow do
+        #shallow do
         resources :comments
-    end
+   # end
    
   end
 
