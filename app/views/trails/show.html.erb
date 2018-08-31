@@ -64,10 +64,11 @@
     <section class='comment-sec'>
 <% @trail.comments.each do |comment| %>
    
-  <div class="well">
+  <div class="well well-white" id="comment-<%= comment.id %>">
    <strong><%= comment.user.name %></strong> says: <br></br>
      <p><%= comment.body %></p>
-    
+     <span ><%= link_to '',trail_comment_path(@trail, comment), method: :delete,
+     data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash' %> </span>
    
 </div>
 
