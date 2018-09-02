@@ -8,10 +8,10 @@ class CommentsController < ApplicationController
       
         if @comment.save!
           #format.html { redirect_to @trail, flash[:notice] 'Comment was successfully created.' }
-          format.json { render json: @comment, status: 201}
+          render json: @comment, status: 201
         else
           #format.html { redirect_to @trail, notice: "You can't leave the comment box blank.Please try again!" }
-          format.json { render json: @comment.errors, status:400 }        
+          render json: {notice: @comment.errors.full_messages}, status: 400
         end
       end
      

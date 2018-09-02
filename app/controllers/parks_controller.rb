@@ -4,10 +4,17 @@ class ParksController < ApplicationController
     skip_before_action :require_login, only: [:index]
     def index 
         @parks = Park.all 
+        respond_to do |format|
+            format.html { render :index }
+            format.json { render json:  @parks }
+        end
     end 
 
     def show 
-             
+        respond_to do |format|
+            format.html { render :show }
+            format.json { render json:  @park }  
+        end  
         
     end 
 
