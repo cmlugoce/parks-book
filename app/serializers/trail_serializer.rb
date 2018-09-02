@@ -15,4 +15,8 @@ class TrailSerializer < ActiveModel::Serializer
       }
     end
   end
+
+  def image
+		return object.image.url(:medium)
+	end
 end
