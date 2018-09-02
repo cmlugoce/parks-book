@@ -35,14 +35,14 @@ $(document).ready(function(){
        this.user = data.user;
       };
 
-      $(function (){
-        $('.js-edit').on("click", function(){
-        commentIdEdit = parseInt($(this).attr('data-id'));
+     // $(function (){
+       // $('.js-edit').on("click", function(){
+     //   commentIdEdit = parseInt($(this).attr('data-id'));
        // $('#comment-' + commentIdEdit).load '/comments/' + commentIdEdit + '/edit'
 
        
-        })
-    });
+  //      })
+   // });
 
 // this method appends html to the div id="submitted-comments"
     Comment.prototype.renderComments = function() {

@@ -11,6 +11,7 @@ class ParksController < ApplicationController
     end 
 
     def show 
+        @trail = @park.trails.all
         respond_to do |format|
             format.html { render :show }
             format.json { render json:  @park }  
