@@ -35,6 +35,15 @@ $(document).ready(function(){
        this.user = data.user;
       };
 
+      $(function (){
+        $('.js-edit').on("click", function(){
+        commentIdEdit = parseInt($(this).attr('data-id'));
+       // $('#comment-' + commentIdEdit).load '/comments/' + commentIdEdit + '/edit'
+
+       
+        })
+    });
+
 // this method appends html to the div id="submitted-comments"
     Comment.prototype.renderComments = function() {
    let html = "" ;
@@ -43,10 +52,11 @@ $(document).ready(function(){
   `<div class=\'well'>
   <strong>${this.user.name}</strong> says: <br></br>
    <p>${this.body}</p>
-  
   </div>`;
  // debugger
    $(".comment-sec").append(html);
 
    
    };
+
+   
