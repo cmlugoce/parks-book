@@ -19,6 +19,7 @@
 //= require comment
 //= require trails
 //= require parks
+//= require users
 
 
 
