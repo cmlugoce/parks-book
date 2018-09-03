@@ -21,7 +21,6 @@
  <h4 class='trailDate'>Date:&nbsp;&nbsp;&nbsp;<%= @trail.date.strftime('%B, %d %Y') %></h4>
  <h4 class='trailDifficulty'>Difficulty: <%= @trail.difficulty %></h4>
   <h4 class='trailNotes'>Trail Notes: <%= @trail.description %></h4>
-  <h4 class='trailUserName'>Trail User: <%= @trail.park.user.name %></h4>
   
   
   <% if current_user == @trail.park.user %>
@@ -35,8 +34,9 @@
     </div>
 
     <div class="center">
-    <a href="#" class="js-previous btn btn-primary btn-sm" data-id="<%=@trail.id%>">View Previous Trail</a><br><br>
-    <a href="#" class="js-next btn btn-primary btn-sm" data-id="<%=@trail.id%>">View Next Trail</a><br><br>
+    <a href="#" class="js-previous btn btn-secondary" style="float: left;" data-id="<%=@trail.id%>"> < </a>
+    <a href="#" class="js-next btn btn-secondary" style="float: right;" data-id="<%=@trail.id%>"> > </a>
+    
    </div>
     
    <div class="box-div">

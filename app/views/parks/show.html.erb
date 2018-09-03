@@ -8,23 +8,21 @@
     </div>
     
     
- 
-<div class="col-md-5">
+    <a href="#" class="js-previous-park btn btn-secondary" style="float: left;" data_id="<%=@park.id%>"> < </a>
+    <a href="#" class="js-next-park btn btn-secondary" style="float: right;" data_id="<%=@park.id%>"> > </a>
+<div class="col-md-5" id="park">
 <h2> Park Name: <%= @park.name %></h5><br>
  <h3 class="item1">Location: &nbsp;&nbsp;&nbsp;<%= @park.location %></h3><br>
- 
- <a href="#" class="js-view-trails btn btn-primary btn-lg" data_id="<%= @park.id %>"> View Trail </a>
+   
+   <div id='park-trail'>
+   <div class="row">
+   <div class="col-md-5">
 
     <%  @park.trails.each do |trail|%></>
-  
- <!-- <a href="#" class="js-view-trails btn btn-primary btn-lg" data_id="<%= trail.id %>"> View Trail </a> -->
+  <h3> <%= link_to trail.name, trail_path(trail) %></h3>
   
    <% end %>
-   <div class="container" style="width:80%;">
-  <div class="parksTrails">
-  </div>
-  </div>
- 
+   </div>
  <br></br>
   <h4 id="park-links"><% if current_user.parks.include?(@park) %>
       <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %><br></br>
@@ -32,8 +30,8 @@
      <%= link_to "Delete Park", park_path(@park), method: :delete, data: { confirm: 'Are you sure?' }%>
 
     <% end %></h4>
-
     </div>
+    
 
    </div>
    
