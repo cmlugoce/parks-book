@@ -11,7 +11,7 @@ class ParksController < ApplicationController
     end 
 
     def show 
-        @trail = @park.trails.all
+       
         respond_to do |format|
             format.html { render :show }
             format.json { render json:  @park }  
@@ -33,6 +33,19 @@ class ParksController < ApplicationController
             render :new 
         end
     end 
+
+    def next_park
+        @park = Park.find(params[:id])
+        @next_park = @park.next
+        render json: @next_park
+      end
+  
+      def previous_park
+        @park = Park.find(params[:id])
+        @previous_park = @park.previous
+        render json: @previous_park
+      end
+    
 
     def edit 
        
