@@ -14,4 +14,22 @@ class Park < ApplicationRecord
   def self.search4(search)
     where("name LIKE ? ", "#{search}")
   end
+
+  def next
+    # if the first trail is greater the current one exists then return the next trail
+    if next_park = self.class.where("id > ?", id).first
+      next_park
+    else
+     Park.first
+    end
+  end
+  
+  def previous
+    # if the trail is less then current one exists then return the previous trail
+    if previous_park = self.class.where("id < ?", id).last
+      previous_park
+    else
+      Park.last
+    end
+  end
 end

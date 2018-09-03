@@ -18,7 +18,7 @@ def self.search2(search)
   where("difficulty LIKE ? ", "#{search}")
 end
 def next
-  # if the first destination is greater the current one exists then return the next destination
+  # if the first trail is greater the current one exists then return the next trail
   if next_trail = self.class.where("id > ?", id).first
     next_trail
   else
@@ -27,7 +27,7 @@ def next
 end
 
 def previous
-  # if the destination is less then current one exists then return the previous destination
+  # if the trail is less then current one exists then return the previous trail
   if previous_trail = self.class.where("id < ?", id).last
     previous_trail
   else
