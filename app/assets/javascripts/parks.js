@@ -107,7 +107,7 @@ debugger
 
 
   let parkPage = $(".container")
-  
+  let parkTrail = $("#park-trail")
   // empty the div
 
   parkPage.empty()
@@ -118,24 +118,28 @@ debugger
   parkPage.append(
     //"<div class='container'>"+
      "<div class='row'>"+
-      
+     
+     
    " <div class='col-md-5' id='park'>" +
     "<h2>" + "Park Name:"+ (data["name"])+"</h2>"+
 "<h3 class='item1'>"+"Location: &nbsp;&nbsp;&nbsp;"+(data["location"])+"</h3>"
-+ "</div>"
++ "</div>"+"<div class='col-md-5'>"+
+`<img src='${data.image}'>`+
+
+"</div>"
 )
     
 //let user_cur = current_user.parks.include?(@park)
 
 let trails = (data["trails"])
-let parkTrail = $("#park-trail")
+
 let userName = data["user"]["name"]
 let parkID = data["id"]
 let userID = data["user"]["id"]
 
 debugger
 
-//parkTrail.empty()
+//ParkTrail.empty()
 $.each (trails, function(index, trail){
  //debugger
  
@@ -149,13 +153,13 @@ $.each (trails, function(index, trail){
 })
  
 
-  parkPage.append (
+ // parkPage.append (
 
-    `    <div class='row'>
-    <div class='col-md-5'>
-    <img src='${data.image}'>
+   // `    <div class='row'>
+   // <div class='col-md-5'>
+   // <img src='${data.image}'>
     
-   </div>`
+  /// </div>`
     //<div class='col-md-5'>
       //<h3><a href='/parks/${parkID}/edit'>Edit</a></h3>
         //    <h3><a href='/parks/${parkID}/delete'>Delete</a></h3>
@@ -164,7 +168,7 @@ $.each (trails, function(index, trail){
             
              
    // `
-  )
+  //)
   
   
 

@@ -2,7 +2,7 @@
 <h2><a href="#" class="js-previous-park btn btn-secondary" style="float: left;" data-id="<%=@park.id%>"> < </a></h2>
 
 <div class="container">
-<div id='info'>
+
 <div class="row">
 
 <div class="col-md-5" >
@@ -14,14 +14,15 @@
 <div class="col-md-5" id="park">
 <h2> Park Name: <%= @park.name %></h5><br>
  <h3 class="item1">Location: &nbsp;&nbsp;&nbsp;<%= @park.location %></h3><br>
-   
-   
+ </div>
+ <div class='p' id='park-trail'>
 
     <%  @park.trails.each do |trail|%></>
+
   <h3> <%= link_to trail.name, trail_path(trail) %></h3>
   
    <% end %>
-   
+   </div>
  <br></br>
   <h4 id="park-links"><% if current_user.parks.include?(@park) %>
       <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %> |
@@ -29,7 +30,7 @@
      <%= link_to "Delete Park", park_path(@park), method: :delete, data: { confirm: 'Are you sure?' }%>
 
     <% end %></h4>
-    </div>
+    
     
 
    </div>
