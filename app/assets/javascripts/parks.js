@@ -64,10 +64,24 @@ $.each (trails, function(index, trail) {
 
 /////////////////////view next/prev/////////////////////
 
+$(function(){
+  $(".js-previous-park").on("click", function (event) {
+    let id = event.target.getAttribute("data-id");
+      debugger
+  $.get("/parks/" + id + "/previous", function(data) {
+  // console.log(data)
+    debugger
+   loadPark(data);
+   
+  });
+  event.preventDefault();
+  
+ })
+})
 
 $(function(){
   $(".js-next-park").on("click", function (event) {
-    let id = event.target.getAttribute("data_id");
+    let id = event.target.getAttribute("data-id");
       debugger
   $.get("/parks/" + id + "/next", function(data) {
   // console.log(data)
@@ -81,14 +95,15 @@ $(function(){
 })
 
 function loadPark(data) {
-
+  
   // change the URL to the new route
   history.pushState({}, "", "/parks/" + data.id)
-
+  
   // re-set the id to current on the buttons
   $(".js-next-park").attr("data-id", data["id"]);
   $(".js-previous-park").attr("data-id",data["id"]);
-
+  
+debugger
 
 
   let parkPage = $(".container")
@@ -103,42 +118,55 @@ function loadPark(data) {
   parkPage.append(
     //"<div class='container'>"+
      "<div class='row'>"+
-      "<div class='col-md-5'>"+
-      "<br></br>"+
-     `<img src='${data.image}' alt='testing'>`+
-       
-      "</div>"+
-   //  " <div class='col-md-5' id='park'>" +
-    "<h2>" + "Park Name:"+ (data["name"])+"</h5><br>"+
-"<h3 class='item1'>"+"Location: &nbsp;&nbsp;&nbsp;"+(data["location"])+"</h3><br>"
-
+      
+   " <div class='col-md-5' id='park'>" +
+    "<h2>" + "Park Name:"+ (data["name"])+"</h2>"+
+"<h3 class='item1'>"+"Location: &nbsp;&nbsp;&nbsp;"+(data["location"])+"</h3>"
++ "</div>"
 )
     
 //let user_cur = current_user.parks.include?(@park)
 
 let trails = (data["trails"])
 let parkTrail = $("#park-trail")
+let userName = data["user"]["name"]
+let parkID = data["id"]
+let userID = data["user"]["id"]
 
+debugger
 
 //parkTrail.empty()
 $.each (trails, function(index, trail){
  //debugger
+ 
   parkPage.append(
   
-  `
-  <div class="pull-right">
-
-<div class="col-md-5">
+ `
   <h3><a href='/trails/${trail.id}'>${trail.name}</a></h3>
-  </div>
-  </div>
+  
   `
 )
-
 })
  
 
+  parkPage.append (
 
+    `    <div class='row'>
+    <div class='col-md-5'>
+    <img src='${data.image}'>
+    
+   </div>`
+    //<div class='col-md-5'>
+      //<h3><a href='/parks/${parkID}/edit'>Edit</a></h3>
+        //    <h3><a href='/parks/${parkID}/delete'>Delete</a></h3>
+        //    <h3><a href='/parks/${parkID}/trails/new'>Add new trails</a></h3>
+        //    </div>
+            
+             
+   // `
+  )
+  
+  
 
 
 

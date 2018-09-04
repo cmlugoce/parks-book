@@ -1,6 +1,8 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+
+/////////////truncate 'trails/index'////////////////////
 $(document).on('click', ".js-more", function(event) {
   event.preventDefault();
     let id = $(this).attr("data-id");
@@ -12,7 +14,7 @@ $(document).on('click', ".js-more", function(event) {
 
 
 
-
+//////////////////set up next and previous ///////////////////////////
 
 
 function loadTrails(data) {
@@ -63,40 +65,40 @@ function loadTrails(data) {
  };
 
 
-$(function(){
-    $(".js-previous").on("click", function (event) {
+//$(function(){
+  //  $(".js-previous").on("click", function (event) {
          // get the id from the data-id attribute (current id) assign it to id
   //  let id = $(".js-previous").attr("data-id")
     // get previous category
    // $.get("/trails/" + id + "/previous", function(data) {
         // pass data to loadCategory
      // loadTrail(data) 
-     var url = $(this).attr("href")
+    // var url = $(this).attr("href")
     // debugger
-     nextTrail(url);
+    // nextTrail(url);
  //   }) 
         
-        event.preventDefault();
+      //  event.preventDefault();
        // debugger
-      })
+     // })
 
-    })
+    //})
 
 
 
-    $(function(){
-      $(".js-next").on("click", function (event) {
-      var id = $(".js-next").attr("data-id")
-      $.get("/trails/" + id + "/next", function(data) {
-       console.log(data)
+   // $(function(){
+     // $(".js-next").on("click", function (event) {
+     // var id = $(".js-next").attr("data-id")
+     // $.get("/trails/" + id + "/next", function(data) {
+      // console.log(data)
         
-       loadTrail(data);
+       //loadTrail(data);
        
-      });
-      event.preventDefault();
+      //});
+     // event.preventDefault();
       
-     })
-    });
+    // })
+   // });
    // $(function(){
      //   $(".js-next").on("click", function (event) {
            // event.preventDefault();
@@ -119,19 +121,19 @@ $(function(){
         // change the URL to the new route
      history.pushState({}, "", "/trails/" + data.id)
      // debugger
-     $(".js-next").attr("data-id", data["id"]);
+    $(".js-next").attr("data-id", data["id"]);
     $(".js-previous").attr("data-id",data["id"]);
      let trail = $("#trail") 
      trail.empty()
 
-    if (data.id > 0) {
+    
       trail.append(
          "<div class='container'>"+
           "<div class='row'>"+
            "<div class='col-md-5'>"+
            "<br></br>"+
-          //`<img src='${trail.image_url}' alt='${trail.image_file_name}'>`+
-            (data["image"]["url"])+
+          `<img src='${data.image}' alt='testing'>`+
+            
            '</div>'+
 
 
@@ -139,24 +141,29 @@ $(function(){
   "<div class='col-md-5' id='trailPage'>"+
 
   "<h2 class='trailName'> Trail Name: " + (data["name"])+ "</h2>"+
- // "<h3 class='trailPark'>Park Name: "+(data["park"]["name"])+"</h3>"+
+ "<h3 class='trailPark'>Park Name: "+(data["park"]["name"])+"</h3>"+
   "<h4 class='trailDistance'>Distance:&nbsp;&nbsp;&nbsp;"+(data["distance"])+ "&nbsp;miles"+"</h4>"+
  // <h4 class='trailDate'>Date:&nbsp;&nbsp;&nbsp;<%= @trail.date.strftime('%B, %d %Y') %></h4>
   "<h4 class='trailDifficulty'>Difficulty:"+ (data["difficulty"])+"</h4>"+
   "<h4 class='trailNotes'>Trail Notes: "+(data["description"])+"</h4>"+
-  //"<h4 class='trailUserName'>Trail User: "+(data["park"]["user"]["name"])+"</h4>"+
-
-
-   "<div class='center'>"
-  //  "<a href='' class='js-previous btn btn-primary btn-sm'>"+(data["id"])+"View Previous Trail"+"</a><br><br>"
-// <a href="#" class="js-next btn btn-primary btn-sm" data-id="<%=@trail.id%>">View Next Trail</a><br><br>
-  // </div>
-   
   
+
+
+   "<div class='center'>"+
+  
+  "</div>"+
+
+  "<div class='box-div'>"+
+  "</div>"
+
+  
+   
         )
-        $(".js-next").attr("data-id", data["id"]);
-  $(".js-previous").attr("data-id",data["id"]);
-    }
+        
+        $.each(trails)
+       // $(".js-next").attr("data-id", data["id"]);
+        //$(".js-previous").attr("data-id",data["id"]);
+    
   }
      
 

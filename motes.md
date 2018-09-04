@@ -5,3 +5,9 @@
 
 -Add next/prev buttons to parks/show
 -render in trail list
+
+ <a href="#" class="js-view-trails btn btn-primary btn-lg" data_id="<%= @park.id %>"> View Trail </a>
+ <div class="container" style="width:80%;">
+  <div class="parksTrails">
+  </div>
+  </div>

@@ -1,32 +1,31 @@
+<h2><a href="#" class="js-next-park btn btn-secondary" style="float: right;" data-id="<%=@park.id%>"> > </a></h2>
+<h2><a href="#" class="js-previous-park btn btn-secondary" style="float: left;" data-id="<%=@park.id%>"> < </a></h2>
 
 <div class="container">
+<div id='info'>
 <div class="row">
 
-<div class="col-md-5">
+<div class="col-md-5" >
 <br></br>
     <%= image_tag @park.image.url(:medium) if @park.image? %>
     </div>
     
     
-    <a href="#" class="js-previous-park btn btn-secondary" style="float: left;" data_id="<%=@park.id%>"> < </a>
-    <a href="#" class="js-next-park btn btn-secondary" style="float: right;" data_id="<%=@park.id%>"> > </a>
 <div class="col-md-5" id="park">
 <h2> Park Name: <%= @park.name %></h5><br>
  <h3 class="item1">Location: &nbsp;&nbsp;&nbsp;<%= @park.location %></h3><br>
    
-   <div id='park-trail'>
-   <div class="row">
-   <div class="col-md-5">
+   
 
     <%  @park.trails.each do |trail|%></>
   <h3> <%= link_to trail.name, trail_path(trail) %></h3>
   
    <% end %>
-   </div>
+   
  <br></br>
   <h4 id="park-links"><% if current_user.parks.include?(@park) %>
-      <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %><br></br>
-      <%= link_to "Add new trails", new_park_trail_path(@park) %><br></br>
+      <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %> |
+      <%= link_to "New trails", new_park_trail_path(@park) %> |
      <%= link_to "Delete Park", park_path(@park), method: :delete, data: { confirm: 'Are you sure?' }%>
 
     <% end %></h4>
