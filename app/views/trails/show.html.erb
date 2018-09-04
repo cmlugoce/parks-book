@@ -33,11 +33,7 @@
     </div>
     </div>
 
-    <div class="center">
-    <a href="#" class="js-previous btn btn-secondary" style="float: left;" data-id="<%=@trail.id%>"> < </a>
-    <a href="#" class="js-next btn btn-secondary" style="float: right;" data-id="<%=@trail.id%>"> > </a>
-    
-   </div>
+   
     
    <div class="box-div">
    </div>
@@ -60,7 +56,7 @@
       <% end %>
    </div>
   
-    <h2><%= link_to "Comments:", trail_comments_path(@trail), class: "comment-link" %> (<%=(@trail.comments.size)%>)</h2>
+    <h2><%= link_to "Comments:", trail_comments_path(@trail), class: "comment-link" %></h2>
     <section class='comment-sec'>
 <% @trail.comments.each do |comment| %>
    
