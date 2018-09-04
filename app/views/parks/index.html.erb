@@ -5,11 +5,18 @@
 <% @parks.each do |park| %>
 <div id='park'>
 <h2>Park Name: <%= link_to park.name, park_path(park), class:'name' %></h2>
-<h3>Posted by: <%= link_to park.user.name, user_path(park.user) %></h3><br></br>
-<h4 id="location-<%= park.id %>">Location: <%= truncate(park.location, length:3)%></p>
 
-<a href="#" class="js-more btn btn-default btn-sm" data-id="<%= park.id %>">Read more<span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+<h3>Posted by: <%= link_to park.user.name, user_path(park.user) %></h3>
 
+<% if current_user == park.user %>
+
+
+<%= link_to "Edit Park", edit_park_path(park), class: "edit-link" %> |
+<%= link_to "New trails", new_park_trail_path(park) %> |
+     <%= link_to "Delete Park", park_path(park), method: :delete, data: { confirm: 'Are you sure?' }%>
+<% end %>
+
+</br>
 </div>
 <% end %>
 </div>
