@@ -1,38 +1,37 @@
-<h2><a href="#" class="js-next-park btn btn-secondary" style="float: right;" data-id="<%=@park.id%>"> > </a></h2>
-<h2><a href="#" class="js-previous-park btn btn-secondary" style="float: left;" data-id="<%=@park.id%>"> < </a></h2>
+<h2><a href="#" class="js-next-park btn btn-secondary glyphicon glyphicon-chevron-right" style="float: right;" data-id="<%=@park.id%>"></a></h2>
+<h2><a href="#" class="js-previous-park btn btn-secondary glyphicon glyphicon-chevron-left" style="float: left;" data-id="<%=@park.id%>"></span></a></h2>
 
-<div class="container">
+<div class='wrapper-park'>
+<header class='park-header'>
+<center>
+<h1> Park Name: <%= @park.name %></h1><br>
+ <h3 class="item1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Location: &nbsp;&nbsp;&nbsp;<%= @park.location %></h3><br>
+</center>
+</header>
+ 
 
-<div class="row">
+<div class="container">   
 
-<div class="col-md-5" >
-<br></br>
-    <%= image_tag @park.image.url(:medium) if @park.image? %>
-    </div>
-    
-    
-<div class="col-md-5" id="park">
-<h2> Park Name: <%= @park.name %></h5><br>
- <h3 class="item1">Location: &nbsp;&nbsp;&nbsp;<%= @park.location %></h3><br>
- </div>
- <div class='p' id='park-trail'>
+ <div class="row">
 
-    <%  @park.trails.each do |trail|%></>
-
-  <h3> <%= link_to trail.name, trail_path(trail) %></h3>
-  
-   <% end %>
-   </div>
+ <div class="col-md-8" id='parkImage' style= 'float: right;'>
  <br></br>
-  <h4 id="park-links"><% if current_user.parks.include?(@park) %>
-      <%= link_to "Edit Park", edit_park_path(@park), class: "edit-link" %> |
-      <%= link_to "New trails", new_park_trail_path(@park) %> |
-     <%= link_to "Delete Park", park_path(@park), method: :delete, data: { confirm: 'Are you sure?' }%>
+     <%= image_tag @park.image.url(:medium) if @park.image? %>
+     </div>
+      
+     
+     
+   </br>
+   <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trails:</h2>
+     <div class="col-md-4" id="park">
+     <center>
+    <%  @park.trails.each do |trail|%>
 
-    <% end %></h4>
-    
-    
-
+  <h3><%= link_to trail.name, trail_path(trail) %></h3>
+ 
+   <% end %>
+   </center>
    </div>
-   
-    </div>
+   </div>
+   </div>
+   </div>
