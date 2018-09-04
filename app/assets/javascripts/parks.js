@@ -105,25 +105,29 @@ function loadPark(data) {
   
 debugger
 
-
-  let parkPage = $(".container")
-  let parkTrail = $("#park-trail")
+  let parkHeader = $(".park-header")
+  let parkPage = $("#parkImage")
+  let parkTrail = $("#park")
   // empty the div
 
-  parkPage.empty()
-
+  parkHeader.empty()
+  parkHeader.append(
+  
+    "<center>"+
+  " <h1> Park Name:" + (data["name"])+"</h1><br>"+
+  "<h3 class='item1'>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Location: &nbsp;&nbsp;&nbsp;"+(data["location"])+"</h3>"
+   + "</center>"  
+)
   
   //$.each (trailss, function(index, trail){
-  
+  parkPage.empty()
   parkPage.append(
     //"<div class='container'>"+
-     "<div class='row'>"+
+    // "<div class='row'>"+
      
      
-   " <div class='col-md-5' id='park'>" +
-    "<h2>" + "Park Name:"+ (data["name"])+"</h2>"+
-"<h3 class='item1'>"+"Location: &nbsp;&nbsp;&nbsp;"+(data["location"])+"</h3>"
-+ "</div>"+"<div class='col-md-5'>"+
+   " <br></br>" +
+    
 `<img src='${data.image}'>`+
 
 "</div>"
@@ -139,15 +143,19 @@ let userID = data["user"]["id"]
 
 debugger
 
-//ParkTrail.empty()
+ParkTrail.empty()
 $.each (trails, function(index, trail){
  //debugger
  
-  parkPage.append(
+  parkTrail.append(
   
  `
   <h3><a href='/trails/${trail.id}'>${trail.name}</a></h3>
-  
+  </center>
+  </div>
+  </div>
+  </div>
+  </div>
   `
 )
 })
