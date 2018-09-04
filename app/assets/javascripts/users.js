@@ -1,4 +1,4 @@
-////////////View trails on 'parks/show'//////////////
+////////////View parks on 'users/show'//////////////
 
 $(function() {
     $(".js-view-parks").on('click',  function(event) {
