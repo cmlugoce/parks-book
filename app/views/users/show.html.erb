@@ -12,7 +12,8 @@
  <h2>Parks logged: <%= "#{@user.parks.size}" %></h2>
 <% end %>
 <div id='parks'>
-<a href="#" class="js-view-parks btn btn-primary btn-lg" data_id="<%=@user.id%>"> View Parks </a>
+<a href="#" class="js-view-parks-sort btn btn-primary btn-lg" data_id="<%=@user.id%>"> View Parks </a>
+
 <% @user.parks.each do |park| %>
     
     
