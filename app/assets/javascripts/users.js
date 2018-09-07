@@ -1,25 +1,10 @@
-////////////View parks on 'users/show'//////////////
 
-$(function() {
-    $(".js-view-parks").on('click',  function(event) {
-      //debugger
-    //  let id = $(".js-view-trails").attr("data_id"); 
-     let id = event.target.getAttribute("data_id");
-   //  debugger
-      $.get("/users/" + id + ".json", function(data) {
-       // debugger
-        // pass data to loadUserTrails
-        loadUsersParks(data);
-      })
-      event.preventDefault();
-    }.bind(this))
-  });
   function loadUsersParks(data) {
   
    let parks = data["parks"];
-   debugger
+   //debugger
    let usersParksDiv = $(".usersParks");
-   debugger
+  // debugger
   // empty the div first
   usersParksDiv.empty();
   //debugger
@@ -28,7 +13,7 @@ $(function() {
   let name = data["name"];
   let location = data["location"];
   let image = data["image"];
-  debugger
+ // debugger
   
   // iterate over each  in the  array
   $.each (parks, function(index, park) {
@@ -48,7 +33,38 @@ $(function() {
       <hr>`
       
     )
-    //return false
+    
   });
   }
-  //<img src='${park.image}' alt='testing'>
+ ////////view parks alph
+
+ $(function() {
+  $(".js-view-parks-sort").on('click',  function(event) {
+    
+   let id = event.target.getAttribute("data_id");
+ 
+    $.get("/users/" + id, function(data) {
+    console.log("line62", data)
+    
+    data.parks.sort(function(a, b) {
+      var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+      var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+    
+      // names must be equal
+      return 0;
+    });
+    //debugger
+      
+      loadUsersParks(data);
+      console.log("line80", data)
+    },"json")
+    event.preventDefault();
+  
+  })
+});
