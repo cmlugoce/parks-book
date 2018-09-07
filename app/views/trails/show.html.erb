@@ -63,10 +63,7 @@
   <div class="well well-white" id="comment-<%= comment.id %>">
    <strong><%= comment.user.name %></strong> says: <br></br>
      <p><%= comment.body %></p>
-     <% if current_user == comment.user %>
-     <span class='js-remove' ><%= link_to '',trail_comment_path(@trail, comment), method: :delete,
-     data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash' %> </span>
-   <% end %>
+     
 </div>
 
 <% end %>

@@ -3,6 +3,7 @@ class ParkSerializer < ActiveModel::Serializer
   has_many :trails
   has_one :user
   def image
-		return object.image.url(:medium)
+    return object.image.url(:medium) 
+  
 	end
 end

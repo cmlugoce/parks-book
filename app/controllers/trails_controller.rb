@@ -88,8 +88,7 @@ class TrailsController < ApplicationController
   end
   
     def destroy
-     # @park = Park.find(params[:trail][:park_id])
-     #@trail = Trail.find(params[:id]) 
+      
      @trail.destroy
       flash[:msg] = "Trail deleted!"
       redirect_to trails_path

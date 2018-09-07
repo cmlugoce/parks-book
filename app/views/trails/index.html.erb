@@ -6,13 +6,13 @@
 <% @trails.each do |trail| %>
 
 <h2>Trail Name: <%= link_to trail.name, trail_path(trail), class:'name' %></h2>
-<h3>Posted by: <%= link_to trail.park.user.name, user_path(trail.park.user) %></h3><br></br>
-<h4 id="description-<%= trail.id %>"><%= truncate(trail.description, length:3)%></p>
+<h3>Posted by: <%= link_to trail.park.user.name, user_path(trail.park.user) %></h3>
+<h4 id="description-<%= trail.id %>">Notes:<%= truncate(trail.description, length:3)%></p>
 
-<a href="#" class="js-more btn btn-default btn-sm" data-id="<%= trail.id %>">Read more<span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+<a href="#" class="js-more" data-id="<%= trail.id %>">Read more<span class=" glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
 <% end %>
 
 </div>
 </div>
-<br></br>
+
 

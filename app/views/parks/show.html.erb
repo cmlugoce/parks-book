@@ -25,7 +25,7 @@
    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Trails:</h2>
      <div class="col-md-4" id="park">
      <center>
-    <%  @park.trails.each do |trail|%>
+    <% @park.trails.each do |trail|%>
 
   <h3><%= link_to trail.name, trail_path(trail) %></h3>
  
