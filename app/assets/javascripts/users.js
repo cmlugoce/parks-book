@@ -44,7 +44,7 @@
    let id = event.target.getAttribute("data_id");
  
     $.get("/users/" + id, function(data) {
-    console.log("line62", data)
+    
     
     data.parks.sort(function(a, b) {
       var nameA = a.name.toUpperCase(); // ignore upper and lowercase
@@ -62,7 +62,7 @@
     //debugger
       
       loadUsersParks(data);
-      console.log("line80", data)
+    
     },"json")
     event.preventDefault();
   

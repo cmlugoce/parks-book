@@ -32,11 +32,7 @@ $(document).ready(function(){
 
 
 
-  //    function Comment(data) {
-    //   this.id = data.id;
-      // this.body = data.body;
-     //  this.user = data.user;
-     // };
+  
 
      
 //es6

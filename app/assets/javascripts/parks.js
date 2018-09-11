@@ -78,15 +78,13 @@ debugger
 
 let trails = (data["trails"])
 
-//let userName = data["user"]["name"]
-//let parkID = data["id"]
-//let userID = data["user"]["id"]
+
 let parkTrail = $("#park")
-debugger
+
 
 parkTrail.empty()
 $.each (trails, function(index, trail){
- debugger
+ 
  
   parkTrail.append(
   
