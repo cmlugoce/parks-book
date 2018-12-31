@@ -56,7 +56,7 @@ debugger
   parkHeader.append(
   
     "<center>"+
-  " <h1> Park Name:" + (data["name"])+"</h1><br>"+
+  " <h1> Park Name:" + (data["name"])+"</h1>"+
   "<h3 class='item1'>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Location: &nbsp;&nbsp;&nbsp;"+(data["location"])+"</h3>"
    + "</center>"  
 )

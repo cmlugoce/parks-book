@@ -4,7 +4,7 @@
 <div class='wrapper-park'>
 <header class='park-header'>
 <center>
-<h1> Park Name: <%= @park.name %></h1><br>
+<h1> Park Name: <%= @park.name %></h1>
  <h3 class="item1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Location: &nbsp;&nbsp;&nbsp;<%= @park.location %></h3><br>
 </center>
 </header>
@@ -14,7 +14,7 @@
 
  <div class="row">
 
- <div class="col-md-8" id='parkImage' style= 'float: right;'>
+ <div class="col-md-8" id='parkImage' style= 'float: right; '>
  <br></br>
      <%= image_tag @park.image.url(:medium) if @park.image? %>
      </div>
