@@ -4,9 +4,13 @@ Parks-book helps the user to keep track of your parks and trails visits. Users c
 
 # Installation & Usage
  1.Fork and clone this repository
+ 
  2.Run `bundle install` in your terminal
+ 
  3.Run `rails db:migrate`
+ 
  4.Run `rails s`, to deploy the program in the browser. If using Facebook Omniauth, run `thin start -ssl` to launch website.
+ 
  5.Go to `http://localserver:3000` to start navigating, if using Facebook Omniauth, go to `https://localserver:3000`.
 
 # Contributing
