@@ -89,7 +89,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
   #config.secret_key_base = ENV['SECRET_KEY_BASE']
-  #secret_key_base: password
+  config.require_master_key = true
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

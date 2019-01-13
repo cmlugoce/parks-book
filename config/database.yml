@@ -23,6 +23,6 @@ test:
   database: parks_book_test
 production:
   <<: *default
-  database: psrks_book_production
+  database: parks_book_production
   username: rails_dev
-  password: <%= ENV['password'] %>
+#  password: <%= ENV['password'] %>
