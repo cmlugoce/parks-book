@@ -5,7 +5,7 @@ class User < ApplicationRecord
     validates :name, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
    # validates :password, :confirmation => true #password_confirmation attr
-    validates_length_of :password, :in => 3..20, :on => :create
+   #validates_length_of :password, :in => 6..60, :on => :create
 
     has_many :parks, :dependent => :destroy
     has_many :comments, :dependent => :destroy
