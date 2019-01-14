@@ -31,7 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 #gem 'activerecord-reset-pk-sequence'
-
+gem 'figaro'
 # Use ActiveStorage variant
  gem 'mini_magick', '~> 4.8'
  gem 'carrierwave', '~> 0.11.2'
@@ -40,7 +40,7 @@ gem 'omniauth-facebook'
 gem 'thin'
 gem 'dotenv-rails'
 gem "omniauth-google-oauth2", "~> 0.2.1"
-
+gem "fog-aws"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
