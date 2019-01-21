@@ -11,11 +11,13 @@ class Trail < ApplicationRecord
  
 
  def self.search(search)
-  where("distance LIKE ? ", "#{search}")
+ # where("distance LIKE ? ", "#{search}") sqlite
+ where("cast(distance as text) LIKE ?", "#{search}")
 end
 
 def self.search2(search)
-  where("difficulty LIKE ? ", "#{search}")
+  #where("difficulty LIKE ? ", "#{search}")
+  where("cast(difficulty as text) LIKE ? ", "#{search}")
 end
 def next
   # if the first trail is greater the current one exists then return the next trail

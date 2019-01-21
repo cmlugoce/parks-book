@@ -1,5 +1,5 @@
-<h1>Add a new park</h1>
-
+<center><h1>Add a new park</h1></center>
+<div class='parks-form'>
 <%= form_for ([current_user, @park]) do |f| %>
   <div class="field">
   <%= f.label :name %><br>
@@ -36,3 +36,6 @@
             </ul>
           </div>
        <% end %>
+
+
+    </div>

@@ -9,22 +9,26 @@
      </ul>
    </div>
 <% end %>
-</div>
-<center>
-<h1>Log In</h1>
+
+
+<center><h1>Log In</h1></center>
 <hr/>
+<div class='container'>
+<div class='row'>
+<div class='col-sm-5'>
 <%= form_tag login_path do %>
   <label>Name:&nbsp;&nbsp;&nbsp;&nbsp </label> <input type="name" name="user[name]" id="name"><br><br/>
-  <label>Password:&nbsp;&nbsp </label> <input type="password" name="user[password]" id="password"><br><br/>
+  <label>Password:&nbsp;</label> <input type="password" name="user[password]" id="password"><br><br/>
   <input type="submit" value="Log In">
 <% end %>
+</div>
 
 
 
-<div class="col">
-<a href="/auth/facebook" class="fb btn">
-          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+<div class="col-sm-6">
+<a href="/auth/facebook">
+<h3> <i class="fa fa-facebook"></i>  Login with Facebook </h3>
         </a>
-        </center>
-
-       
+ </div>       
+</div>
+</div> 

@@ -1,3 +1,4 @@
+<div class='parks-form'>
 <%= form_for [@park, @trail] do |f| %>
     <div class="field">
     <%= f.label :name %><br>
@@ -11,7 +12,7 @@
     <%= f.label :date %><br>
     <%= f.date_field :date %>
   </div>
-  </div>
+  
   <div class="field">
     <%= f.label "Notes" %><br>
     <%= f.text_field :description %>
@@ -47,3 +48,5 @@
             </ul>
           </div>
        <% end %>
+
+       </div>
